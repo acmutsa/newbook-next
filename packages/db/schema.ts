@@ -15,7 +15,10 @@ export const foo = pgTable("foo", {
 	bar: text("bar").primaryKey(),
 });
 
-export const courses = pgTable("coures", {
+export const courses = pgTable("courses", {
 	crn: text("crn").primaryKey(),
-	
+	title: text("title"),
+	semester: text("semester"),
+	instructor: text("instructor"),
+	section: text("section")
 })

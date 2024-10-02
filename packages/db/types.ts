@@ -1,6 +1,6 @@
 export type Course = {
   sem: string;
-  crn: number;
+  crn: string;
   section: string;
   title: string;
   instructor: string;

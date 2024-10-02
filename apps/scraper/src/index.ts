@@ -1,5 +1,6 @@
 import puppeteer, { Keyboard, Page, TimeoutError } from "puppeteer";
-import { Course } from "./types";
+import {insertCourses} from "db/queries";
+import { Course } from "db/types";
 
 const main = async () => {
   // Launch the browser and open a new blank page
@@ -30,6 +31,7 @@ const main = async () => {
 
     if (!optionInput) {
       console.error("Can't find option input!");
+      browser.close();
       return;
     }
 
@@ -82,12 +84,12 @@ const main = async () => {
             `span#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_SemYrLbl`,
             (el) => el.innerText
           ),
-          crn: Number.parseInt(
+          crn: 
             await page.$eval(
               `span#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_crnlbl`,
               (el) => el.innerText
             )
-          ),
+          ,
           section: await page.$eval(
             `span#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_CourseLbl`,
             (el) => el.innerText
@@ -100,14 +102,14 @@ const main = async () => {
             `a#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_InstructorLnkBtn`,
             (el) => el.innerText
           ),
-          textbook: await page.$eval(
-            `a#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_TextBookLnkBtn`,
-            (el) => el.innerText
-          ),
+          // textbook: await page.$eval(
+          //   `a#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_TextBookLnkBtn`,
+          //   (el) => el.innerText
+          // ),
         }))
       );
 
-      console.dir(courseList.map((course) => course.crn));
+      await insertCourses(courseList);
 
       await nextBtn.click();
       await page.waitForNavigation();
