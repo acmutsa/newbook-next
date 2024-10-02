@@ -14,3 +14,8 @@ import {
 export const foo = pgTable("foo", {
 	bar: text("bar").primaryKey(),
 });
+
+export const courses = pgTable("coures", {
+	crn: text("crn").primaryKey(),
+	
+})
