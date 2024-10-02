@@ -1,0 +1,26 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "description": "Shared drizzle-orm schema for the db",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "migrations:generate": "drizzle-kit generate",
+    "migrations:apply": "node -r esbuild-register migrate.ts",
+    "migrations:drop": "drizzle-kit drop",
+    "migrations:push": "drizzle-kit push",
+    "kit:up": "drizzle-kit up",
+    "studio": "drizzle-kit studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0",
+    "dotenv": "^16.4.5",
+    "drizzle-kit": "^0.24.2",
+    "drizzle-orm": "^0.33.0",
+    "esbuild-register": "^3.6.0",
+    "postgres": "^3.4.4"
+  }
+}
