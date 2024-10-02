@@ -21,6 +21,8 @@ importers:
         specifier: ^5.4.5
         version: 5.6.2
 
+  apps/scraper: {}
+
   apps/web:
     dependencies:
       next:
