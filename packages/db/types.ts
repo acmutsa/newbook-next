@@ -1,5 +1,5 @@
 export type Course = {
-  sem: string;
+  semester: string;
   crn: string;
   section: string;
   title: string;

@@ -1,4 +1,4 @@
-import puppeteer, { Keyboard, Page, TimeoutError } from "puppeteer";
+import puppeteer from "puppeteer";
 import {insertCourses} from "db/queries";
 import { Course } from "db/types";
 
@@ -79,8 +79,8 @@ const main = async () => {
       );
 
       const courseList: Course[] = await Promise.all(
-        tablePageCourseList.map(async (table, idx) => ({
-          sem: await page.$eval(
+        tablePageCourseList.map(async (_, idx) => ({
+          semester: await page.$eval(
             `span#ctl00_MainContent_mainContent1_MainContentAccordion_Pane_${idx}_header_SemYrLbl`,
             (el) => el.innerText
           ),

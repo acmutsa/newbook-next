@@ -11,14 +11,10 @@ import {
 	pgTable,
 } from "drizzle-orm/pg-core";
 
-export const foo = pgTable("foo", {
-	bar: text("bar").primaryKey(),
-});
-
 export const courses = pgTable("courses", {
-	crn: text("crn").primaryKey(),
-	title: text("title"),
-	semester: text("semester"),
-	instructor: text("instructor"),
-	section: text("section")
+	crn: text("crn").primaryKey().notNull(),
+	title: text("title").notNull(),
+	semester: text("semester").notNull(),
+	instructor: text("instructor").notNull(),
+	section: text("section").notNull()
 })

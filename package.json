@@ -5,6 +5,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
+    "scrape": "pnpm --filter=scraper start",
+    "db-push": "pnpm --filter=db migrations:push",
     "format": "prettier --write .",
     "format-check": "prettier --check ."
   },

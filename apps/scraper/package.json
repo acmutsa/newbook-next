@@ -1,11 +1,10 @@
 {
-  "name": "bluebook-scraper",
+  "name": "scraper",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "pnpm tsc; node ./dist/index.js",
-    "start": "pnpm tsc; node ./dist/index.js"
+    "test": "pnpm tsc; node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
