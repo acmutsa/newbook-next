@@ -7,12 +7,13 @@ import {
 	integer,
 	json,
 	pgEnum,
-	primaryKey,
 	pgTable,
+	serial,
 } from "drizzle-orm/pg-core";
 
 export const courses = pgTable("courses", {
-	crn: text("crn").primaryKey().notNull(),
+	id: serial("id").primaryKey().notNull(),
+	crn: text("crn").notNull(),
 	title: text("title").notNull(),
 	semester: text("semester").notNull(),
 	instructor: text("instructor").notNull(),

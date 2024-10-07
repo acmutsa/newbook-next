@@ -1,11 +1,12 @@
 import puppeteer from "puppeteer";
-import {insertCourses} from "db/queries";
-import { Course } from "db/types";
+import { insertCourses, clearCourses } from "db/queries";
+import { type Course } from "db/types";
 
 const main = async () => {
   // Launch the browser and open a new blank page
   const browser = await puppeteer.launch({
     headless: true,
+    timeout: 0,
   });
   const page = await browser.newPage();
 
@@ -22,8 +23,9 @@ const main = async () => {
     )
   ).slice(1);
 
-  // Iterate through subject options
+  await clearCourses();
 
+  // Iterate through subject options
   for (const option of optionList) {
     const optionInput = await page.$(
       "input#ctl00_MainContentSearchQuery_searchCriteriaEntry_CourseSubjectCombo_TextBox"

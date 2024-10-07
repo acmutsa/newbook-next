@@ -2,7 +2,8 @@
   "name": "db",
   "version": "1.0.0",
   "description": "Shared drizzle-orm schema for the db",
-  "types": "./index.ts",
+  "main": "./index.ts",
+  "types": "./types.ts",
   "scripts": {
     "migrations:generate": "drizzle-kit generate",
     "migrations:apply": "node -r esbuild-register migrate.ts",
