@@ -33,7 +33,7 @@ const main = async () => {
 
     if (!optionInput) {
       console.error("Can't find option input!");
-      browser.close();
+      await browser.close();
       return;
     }
 
