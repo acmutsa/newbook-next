@@ -6,11 +6,13 @@ export default function Navbar() {
 		<nav className="fixed top-0 h-20 w-screen">
 			<div className="mx-auto grid h-full w-full max-w-7xl grid-cols-2 px-5">
 				<div className="flex items-center">
-					<h1 className="font-eb text-utsa-blue text-xl font-bold">
-						NewBook
-					</h1>
+					<Link href={"/"}>
+						<h1 className="font-eb text-xl font-bold text-utsa-blue">
+							NewBook
+						</h1>
+					</Link>
 				</div>
-				<div className="text-utsa-blue font-eb flex items-center justify-end gap-x-4 text-lg font-semibold">
+				<div className="flex items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
 					<Link href={"/policy"}>Policies</Link>

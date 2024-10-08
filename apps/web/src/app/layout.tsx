@@ -35,7 +35,7 @@ export default function RootLayout({
 		<ClerkProvider>
 			<html lang="en">
 				<body
-					className={`${noto.variable} ${eb.variable} font-noto antialiased`}
+					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
 					<Navbar />
 					{children}
