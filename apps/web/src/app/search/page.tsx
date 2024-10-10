@@ -48,7 +48,7 @@ export default async function Page({
 					<CourseItem
 						course={{
 							crn: i.crn,
-							professor: i.instructor,
+							professor: "john doe",
 							title: i.title,
 						}}
 					/>
