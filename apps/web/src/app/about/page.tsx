@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Page() {
 	return (
 		<div className="mx-auto w-screen max-w-7xl px-5 pt-20 text-utsa-blue">
@@ -7,7 +9,7 @@ export default function Page() {
 				</h1>
 			</div>
 			<div className="grid grid-cols-2 grid-rows-3 gap-6">
-				<p className="col-start-1 row-start-1">
+				<p className="col-span-2 col-start-1 row-start-1 md:col-span-1">
 					Lorem ipsum odor amet, consectetuer adipiscing elit. Mi a
 					mus arcu ultricies quisque tincidunt. Sagittis quis
 					consequat eget justo habitasse. Fermentum massa egestas
@@ -17,7 +19,7 @@ export default function Page() {
 					Ante interdum rhoncus eu gravida consequat auctor. Sociosqu
 					natoque diam erat justo lacus cubilia aliquet.
 				</p>
-				<p className="col-start-1 row-start-2">
+				<p className="col-span-2 col-start-1 row-start-2 md:col-span-1">
 					Pulvinar aptent euismod tortor penatibus velit tellus
 					sollicitudin ac nibh. Primis sagittis cubilia suspendisse
 					interdum senectus ultricies quisque urna semper. Dui ad
@@ -27,6 +29,13 @@ export default function Page() {
 					pellentesque etiam ligula at? Dictum laoreet rutrum a etiam
 					pharetra laoreet sociosqu netus.
 				</p>
+				<Image
+					src="/sp1.jpg"
+					width={1000}
+					height={760}
+					className="col-start-2 row-span-3 hidden md:block"
+					alt="Picture of UTSA's SP1 Building"
+				/>
 			</div>
 		</div>
 	);
