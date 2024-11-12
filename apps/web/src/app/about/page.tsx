@@ -8,8 +8,8 @@ export default function Page() {
 					About Us
 				</h1>
 			</div>
-			<div className="grid grid-cols-2 grid-rows-3 gap-6">
-				<p className="col-span-2 col-start-1 row-start-1 md:col-span-1">
+			<div className="grid grid-cols-3 grid-rows-2 gap-10">
+				<p className="col-span-3 col-start-1 row-start-1 md:col-span-1">
 					Lorem ipsum odor amet, consectetuer adipiscing elit. Mi a
 					mus arcu ultricies quisque tincidunt. Sagittis quis
 					consequat eget justo habitasse. Fermentum massa egestas
@@ -19,7 +19,7 @@ export default function Page() {
 					Ante interdum rhoncus eu gravida consequat auctor. Sociosqu
 					natoque diam erat justo lacus cubilia aliquet.
 				</p>
-				<p className="col-span-2 col-start-1 row-start-2 md:col-span-1">
+				<p className="col-span-3 row-start-2 md:col-span-1">
 					Pulvinar aptent euismod tortor penatibus velit tellus
 					sollicitudin ac nibh. Primis sagittis cubilia suspendisse
 					interdum senectus ultricies quisque urna semper. Dui ad
@@ -31,11 +31,16 @@ export default function Page() {
 				</p>
 				<Image
 					src="/sp1.jpg"
-					width={1000}
-					height={760}
-					className="col-start-2 row-span-3 hidden md:block"
+					width={650}
+					height={250}
+					className="col-span-2 col-start-2 row-span-2 hidden md:block"
 					alt="Picture of UTSA's SP1 Building"
 				/>
+			</div>
+			<div className="items-left flex flex-col py-8">
+				<h1 className="font-eb text-6xl font-black text-utsa-blue">
+					FAQ
+				</h1>
 			</div>
 		</div>
 	);
