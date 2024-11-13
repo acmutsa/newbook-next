@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 const MAX_SCORE = 5;
 
-export default function AdvisorScoreCard({
+export default function ScoreCard({
     score
 }: {
     score: number;
