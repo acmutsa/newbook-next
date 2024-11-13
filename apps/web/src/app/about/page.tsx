@@ -1,12 +1,16 @@
 import Image from "next/image";
+import {
+	Accordion,
+	AccordionContent,
+	AccordionItem,
+	AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function Page() {
 	return (
 		<div className="mx-auto w-screen max-w-7xl px-5 pt-20 text-utsa-blue">
 			<div className="items-left flex flex-col py-8">
-				<h1 className="font-eb text-6xl font-black text-utsa-blue">
-					About Us
-				</h1>
+				<h1 className="font-eb text-6xl font-black">About Us</h1>
 			</div>
 			<div className="grid grid-cols-3 grid-rows-2 gap-10">
 				<p className="col-span-3 col-start-1 row-start-1 md:col-span-1">
@@ -37,10 +41,20 @@ export default function Page() {
 					alt="Picture of UTSA's SP1 Building"
 				/>
 			</div>
-			<div className="items-left flex flex-col py-8">
+			<div className="items-left flex flex-col py-6">
 				<h1 className="font-eb text-6xl font-black text-utsa-blue">
 					FAQ
 				</h1>
+			</div>
+			<div className="">
+				<Accordion type="single" collapsible>
+					<AccordionItem value="item-1">
+						<AccordionTrigger>Is it accessible?</AccordionTrigger>
+						<AccordionContent>
+							Yes. It adheres to the WAI-ARIA design pattern.
+						</AccordionContent>
+					</AccordionItem>
+				</Accordion>
 			</div>
 		</div>
 	);
