@@ -1,17 +1,17 @@
-import AdvisorScoreCard from "@/components/shared/advisor/NewBookAdvisorScore";
+import ScoreCard from "@/components/shared/NewBookScoreCard";
 import ProfileTitleCard from "@/components/shared/NewBookProfileTitle";
 
 
 export default function Page() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-center bg-offwhite">
-            <h1>AdvisorScoreCard</h1>
+            <h1>ScoreCard</h1>
             <div className="flex gap-8 my-8">
-                <AdvisorScoreCard score={0.2} />
-                <AdvisorScoreCard score={1.314} />
-                <AdvisorScoreCard score={2.314} />
-                <AdvisorScoreCard score={3.58} />
-                <AdvisorScoreCard score={4.19} />
+                <ScoreCard score={0.2} />
+                <ScoreCard score={1.314} />
+                <ScoreCard score={2.314} />
+                <ScoreCard score={3.58} />
+                <ScoreCard score={4.19} />
             </div>
             <h1>ProfileTitleCard</h1>
             <div className="flex flex-col gap-8 my-8">
