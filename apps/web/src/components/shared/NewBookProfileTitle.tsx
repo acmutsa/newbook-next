@@ -2,6 +2,7 @@ import {
     Card
 } from "@/components/ui/card";
 
+// TODO: merge this with the other Card function components, don't just use it as a container
 export default function ProfileTitleCard({
     name,
     title,
