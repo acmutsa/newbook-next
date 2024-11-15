@@ -33,7 +33,27 @@ export default function Page() {
             </div>
             <h1>ProfileReview</h1>
             <div className="flex flex-col gap-8 my-8">
-                <ProfileReview />
+                <ProfileReview
+                    score={2.0}
+                    major="Computer Science"
+                    classOf={2024}
+                    datePosted={new Date()}
+                    content="Meh."
+                />
+                <ProfileReview
+                    score={3.5}
+                    major="English"
+                    classOf={2027}
+                    datePosted={new Date()}
+                    content="Alright!"
+                />
+                <ProfileReview
+                    score={5.0}
+                    major="Finance"
+                    classOf={2025}
+                    datePosted={new Date()}
+                    content="Wow!"
+                />
             </div>
         </main>
     ); 
