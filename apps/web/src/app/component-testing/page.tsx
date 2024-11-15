@@ -1,6 +1,6 @@
 import ScoreCard from "@/components/shared/NewBookScoreCard";
 import ProfileTitleCard from "@/components/shared/NewBookProfileTitle";
-
+import ProfileReview from "@/components/shared/NewBookProfileReview";
 
 export default function Page() {
     return (
@@ -30,6 +30,10 @@ export default function Page() {
                     title="Academic advisor"
                     unit="College of Sciences"
                 />
+            </div>
+            <h1>ProfileReview</h1>
+            <div className="flex flex-col gap-8 my-8">
+                <ProfileReview />
             </div>
         </main>
     ); 
