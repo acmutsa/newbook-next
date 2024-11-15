@@ -38,7 +38,7 @@ export default function ProfileReview({
                         </div>
                     </div>
                     <div>
-                        {/* Add date in local "medium" formatting */}
+                        {/* Add date in local "medium" formatting -- en_US => Nov 14, 2024 */}
                         { datePosted?.toLocaleDateString(undefined, { dateStyle: 'medium' }) ?? "datePosted" }
                     </div>
                 </div>
