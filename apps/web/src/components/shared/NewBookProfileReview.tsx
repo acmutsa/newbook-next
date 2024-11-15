@@ -11,7 +11,8 @@ import { Toggle } from "@/components/ui/toggle";
 import { TriangleDownIcon, TriangleUpIcon } from "@radix-ui/react-icons";
 
 // TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
-// Ask: should this be a Date object instead?
+// TODO: ASK: should classOf be a Date object?
+// TODO: add a callback function for when the up/down toggles are enabled/disabled; also, see if we can change the icons
 export default function ProfileReview({
     score,
     major,
@@ -30,14 +31,15 @@ export default function ProfileReview({
             <CardHeader>
                 <div className="flex justify-between">
                     <div className="flex space-x-3 items-center">
-                        <ScoreIcon score={4.3} />
+                        <ScoreIcon score={score} />
                         <div>
                             <CardTitle>Student</CardTitle>
                             <CardDescription>{ major ?? "major" } | Class of { classOf ?? "classOf" }</CardDescription>
                         </div>
                     </div>
                     <div>
-                        { datePosted?.toLocaleDateString() ?? "datePosted" }
+                        {/* Add date in local "medium" formatting */}
+                        { datePosted?.toLocaleDateString(undefined, { dateStyle: 'medium' }) ?? "datePosted" }
                     </div>
                 </div>
             </CardHeader>
