@@ -15,7 +15,7 @@ export default function ScoreIcon({
     return (
         <Avatar>
             <AvatarFallback className={clsx(
-                "shadow-[inset_0_0_0.25em_0.05em_#000]",
+                "font-bold shadow-[inset_0_0_0.25em_0.05em_#000]",
                 {
                     "shadow-score-0": ( scorePercent >= 0 ) && ( scorePercent < 0.2 ),
                     "shadow-score-1": ( scorePercent >= 0.2 ) && ( scorePercent < 0.4 ),
