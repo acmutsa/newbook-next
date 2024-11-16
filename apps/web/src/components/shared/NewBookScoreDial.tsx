@@ -56,7 +56,7 @@ export default function ScoreDial({
                 <circle r={innerRadius} cx="10" cy="10" fill="white" stroke-width="0" />
             </svg>
             <div className="flex flex-col items-center -mt-[4.25rem] z-10">
-                <div className="font-bold text-xl">
+                <div className="font-bold text-xl -mt-1">
                     {(scorePercent * 100).toFixed()}%
                 </div>
                 <div className="flex gap-1 items-center">
