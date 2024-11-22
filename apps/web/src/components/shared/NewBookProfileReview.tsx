@@ -8,12 +8,13 @@ import {
 } from "@/components/ui/card";
 import ScoreIcon from "@/components/shared/NewBookScoreIcon";
 import { Toggle } from "@/components/ui/toggle";
-import { TriangleDownIcon, TriangleUpIcon } from "@radix-ui/react-icons";
+import { ThumbsUp, ThumbsDown } from "lucide-react";
 
 // FIXME: error when score isn't given!
+// FIXME: instead of giving content as a string prop, just allow a child element
 // TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
 // TODO: ASK: should classOf be a Date object?
-// TODO: add a callback function for when the up/down toggles are enabled/disabled; also, see if we can change the icons
+// TODO: add a callback function for when the up/down toggles are enabled/disabled
 export default function ProfileReview({
     score,
     major,
@@ -52,10 +53,10 @@ export default function ProfileReview({
                     Was this review helpful?
                 </div>
                 <Toggle>
-                    <TriangleUpIcon />
+                    <ThumbsUp />
                 </Toggle>
                 <Toggle>
-                    <TriangleDownIcon />
+                    <ThumbsDown />
                 </Toggle>
             </CardFooter>
         </Card>
