@@ -7,8 +7,7 @@ export default function ScoreCard({
 }: {
     score: number;
 }) {
-    // TODO: error-checking for invalid score
-    // TODO: Implement logic for actually pulling score from the database w/ the key, instead of just taking it in as a prop
+    // TODO: error-checking for invalid score?
     const scorePercent = score / MAX_SCORE;
     
     return (
