@@ -1,6 +1,5 @@
 import clsx from "clsx";
-
-const MAX_SCORE = 5;
+import { PROFILE_MAX_OVERALL_SCORE } from "@/lib/constants";
 
 export default function ScoreCard({
     score
@@ -11,8 +10,8 @@ export default function ScoreCard({
     // and score / MAX_SCORE if it falls within parameters
     const scorePercent = ( score == undefined ) ? NaN
                                                 : ( score < 0 ) ? 0
-                                                                : ( score > MAX_SCORE ) ? MAX_SCORE
-                                                                                        : ( score / MAX_SCORE );
+                                                                : ( score > PROFILE_MAX_OVERALL_SCORE ) ? PROFILE_MAX_OVERALL_SCORE
+                                                                                        : ( score / PROFILE_MAX_OVERALL_SCORE );
     
     return (
         <div className={clsx(
@@ -31,7 +30,7 @@ export default function ScoreCard({
             <div className="text-2xl text-slate-500">
                 <span className="sr-only">out of</span>
                 <span className="not-sr-only">/ </span>
-                { MAX_SCORE ?? NaN }
+                { PROFILE_MAX_OVERALL_SCORE ?? NaN }
             </div>
         </div>
     )
