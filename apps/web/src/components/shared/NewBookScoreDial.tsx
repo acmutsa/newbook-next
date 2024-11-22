@@ -1,12 +1,9 @@
 import clsx from "clsx";
 import {
     Card,
-    CardTitle,
-    CardContent
 } from "@/components/ui/card";
 import { PropsWithChildren } from "react";
-
-const MAX_SCORE = 1;
+import { PROFILE_MAX_CATEGORY_SCORE } from "@/lib/constants";
 
 export default function ScoreDial({
     score,
@@ -17,8 +14,8 @@ export default function ScoreDial({
     // Check if score is given, and if percent is in range, and hit corresponding min/max otherwise
     const scorePercent = ( score == undefined ) ? NaN
                                                 : ( score < 0 ) ? 0
-                                                                : ( score > MAX_SCORE ) ? MAX_SCORE
-                                                                                        : score / MAX_SCORE;
+                                                                : ( score > PROFILE_MAX_CATEGORY_SCORE ) ? PROFILE_MAX_CATEGORY_SCORE
+                                                                                        : score / PROFILE_MAX_CATEGORY_SCORE;
     const size = 100; // TODO: make this a prop
     const outerRadius = 5; // TODO: make this a prop? somehow
     const strokeFill = ( Math.PI * outerRadius );
