@@ -5,7 +5,7 @@ import {
 import { PropsWithChildren } from "react";
 import { PROFILE_MAX_CATEGORY_SCORE } from "@/lib/constants";
 
-export default function ScoreDial({
+export default function ScoreDialCard({
     score,
     children,
 }: PropsWithChildren<{
@@ -16,8 +16,7 @@ export default function ScoreDial({
                                                 : ( score < 0 ) ? 0
                                                                 : ( score > PROFILE_MAX_CATEGORY_SCORE ) ? PROFILE_MAX_CATEGORY_SCORE
                                                                                         : score / PROFILE_MAX_CATEGORY_SCORE;
-    const size = 100; // TODO: make this a prop
-    const outerRadius = 5; // TODO: make this a prop? somehow
+    const outerRadius = 5;
     const strokeFill = ( Math.PI * outerRadius );
     const strokeFillPercent = strokeFill * scorePercent;
 
@@ -32,8 +31,8 @@ export default function ScoreDial({
                         "stroke-score-4": ( scorePercent >= 0.8 ),
                     },
                 )}
-                height={size}
-                width={size}
+                height="6em"
+                width="6em"
                 viewBox="0 0 20 20"
             >
                 <path
