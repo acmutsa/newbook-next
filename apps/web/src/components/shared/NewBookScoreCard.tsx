@@ -7,9 +7,12 @@ export default function ScoreCard({
 }: {
     score: number;
 }) {
-    // TODO: add use-case for no score given!
-    // TODO: error-checking for invalid score?
-    const scorePercent = score / MAX_SCORE;
+    // Set percent to NaN if no score given, 0 if score's less than 0, MAX_SCORE if it's more than the max,
+    // and score / MAX_SCORE if it falls within parameters
+    const scorePercent = ( score == undefined ) ? NaN
+                                                : ( score < 0 ) ? 0
+                                                                : ( score > MAX_SCORE ) ? MAX_SCORE
+                                                                                        : ( score / MAX_SCORE );
     
     return (
         <div className={clsx(
