@@ -9,9 +9,8 @@ import {
 import ScoreIcon from "@/components/shared/NewBookScoreIcon";
 import { Toggle } from "@/components/ui/toggle";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
+import { PropsWithChildren } from "react";
 
-// FIXME: error when score isn't given!
-// FIXME: instead of giving content as a string prop, just allow a child element
 // TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
 // TODO: ASK: should classOf be a Date object?
 // TODO: add a callback function for when the up/down toggles are enabled/disabled
@@ -20,14 +19,13 @@ export default function ProfileReview({
     major,
     classOf,
     datePosted,
-    content
-}: {
+    children
+}: PropsWithChildren<{
     score: number;
     major: string;
     classOf: number;
     datePosted: Date;
-    content: string;
-}) {
+}>) {
     return (
         <Card>
             <CardHeader>
@@ -46,7 +44,7 @@ export default function ProfileReview({
                 </div>
             </CardHeader>
             <CardContent>
-                { content ?? "content" }
+                { children }
             </CardContent>
             <CardFooter className="text-sm space-x-2">
                 <div>
