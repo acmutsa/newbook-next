@@ -10,6 +10,7 @@ import ScoreIcon from "@/components/shared/NewBookScoreIcon";
 import { Toggle } from "@/components/ui/toggle";
 import { TriangleDownIcon, TriangleUpIcon } from "@radix-ui/react-icons";
 
+// FIXME: error when score isn't given!
 // TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
 // TODO: ASK: should classOf be a Date object?
 // TODO: add a callback function for when the up/down toggles are enabled/disabled; also, see if we can change the icons
