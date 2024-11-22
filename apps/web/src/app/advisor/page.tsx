@@ -1,7 +1,7 @@
 import ProfileReview from "@/components/shared/NewBookProfileReview"
 import ProfileTitleCard from "@/components/shared/NewBookProfileTitle"
 import ScoreCard from "@/components/shared/NewBookScoreCard"
-import ScoreDial from "@/components/shared/NewBookScoreDial"
+import ScoreDialCard from "@/components/shared/NewBookScoreDial"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { CalendarCheck, SquareCheckBig, Laugh, HeartHandshake } from "lucide-react"
 
@@ -25,18 +25,18 @@ export default function Page() {
                         </CardHeader>
                         <CardContent>
                             <div className="grid grid-cols-2 xl:grid-cols-4 gap-2">
-                                <ScoreDial score={0.82}>
+                                <ScoreDialCard score={0.82}>
                                     <CalendarCheck size="1em" /> Responsive
-                                </ScoreDial>
-                                <ScoreDial score={0.64}>
+                                </ScoreDialCard>
+                                <ScoreDialCard score={0.64}>
                                     <SquareCheckBig size="1em" /> Accurate
-                                </ScoreDial>
-                                <ScoreDial score={1.0}>
+                                </ScoreDialCard>
+                                <ScoreDialCard score={1.0}>
                                     <Laugh size="1em" /> Approachable
-                                </ScoreDial>
-                                <ScoreDial score={0.9}>
+                                </ScoreDialCard>
+                                <ScoreDialCard score={0.9}>
                                     <HeartHandshake size="1em" /> Helpful
-                                </ScoreDial>
+                                </ScoreDialCard>
                             </div>
                         </CardContent>
                     </Card>

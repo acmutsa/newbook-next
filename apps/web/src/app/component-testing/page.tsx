@@ -1,7 +1,7 @@
 import ScoreCard from "@/components/shared/NewBookScoreCard";
 import ProfileTitleCard from "@/components/shared/NewBookProfileTitle";
 import ProfileReview from "@/components/shared/NewBookProfileReview";
-import ScoreDial from "@/components/shared/NewBookScoreDial";
+import ScoreDialCard from "@/components/shared/NewBookScoreDial";
 import { CheckCircledIcon, CalendarIcon, HeartIcon, FaceIcon } from "@radix-ui/react-icons";
 
 export default function Page() {
@@ -62,36 +62,36 @@ export default function Page() {
             </div>
             <h1>ScoreDial</h1>
             <div className="flex gap-8 my-8">
-                <ScoreDial
+                <ScoreDialCard
                     score={0.145}
                 >
                     <CheckCircledIcon />
                     Accuracy
-                </ScoreDial>
-                <ScoreDial
+                </ScoreDialCard>
+                <ScoreDialCard
                     score={0.28}
                 >
                     <CalendarIcon />
                     Responsiveness
-                </ScoreDial>
-                <ScoreDial
+                </ScoreDialCard>
+                <ScoreDialCard
                     score={0.48}
                 >
                     <HeartIcon />
                     Helpfulness
-                </ScoreDial>
-                <ScoreDial
+                </ScoreDialCard>
+                <ScoreDialCard
                     score={0.68}
                 >
                     <FaceIcon />
                     Approachability
-                </ScoreDial>
-                <ScoreDial
+                </ScoreDialCard>
+                <ScoreDialCard
                     score={0.84}
                 >
                     <CalendarIcon />
                     Responsiveness
-                </ScoreDial>
+                </ScoreDialCard>
             </div>
         </main>
     ); 
