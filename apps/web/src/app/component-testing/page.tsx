@@ -40,22 +40,25 @@ export default function Page() {
                     major="Computer Science"
                     classOf={2024}
                     datePosted={new Date()}
-                    content="Meh."
-                />
+                >
+                    Meh.
+                </ProfileReview>
                 <ProfileReview
                     score={3.5}
                     major="English"
                     classOf={2027}
                     datePosted={new Date()}
-                    content="Alright!"
-                />
+                >
+                    Alright!
+                </ProfileReview>
                 <ProfileReview
                     score={5.0}
                     major="Finance"
                     classOf={2025}
                     datePosted={new Date()}
-                    content="Wow!"
-                />
+                >
+                    Wow!
+                </ProfileReview>
             </div>
             <h1>ScoreDial</h1>
             <div className="flex gap-8 my-8">

@@ -53,15 +53,17 @@ export default function Page() {
                                 major="Biology"
                                 classOf={2024}
                                 datePosted={new Date(1732084730000)}
-                                content="This advisor was awesome!"
-                            />
+                            >
+                                This advisor was awesome!
+                            </ProfileReview>
                             <ProfileReview
                                 score={3.5}
                                 major="Computer science"
                                 classOf={2024}
                                 datePosted={new Date(1732024030000)}
-                                content="They were nice, but they forgot to tell me this deadline that I almost missed. Double-check your DegreeWorks!"
-                            />
+                            >
+                                They were nice, but they forgot to tell me this deadline that I almost missed. Double-check your DegreeWorks!
+                            </ProfileReview>
                         </CardContent>
                     </Card>
                 </div>
