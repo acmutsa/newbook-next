@@ -7,6 +7,7 @@ export default function ScoreCard({
 }: {
     score: number;
 }) {
+    // TODO: add use-case for no score given!
     // TODO: error-checking for invalid score?
     const scorePercent = score / MAX_SCORE;
     
