@@ -13,16 +13,16 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { ThumbsUp, ThumbsDown } from "lucide-react";
 import { PropsWithChildren, useState } from "react";
 
-type HelpfulValues = "helpful" | "not-helpful" | undefined;
+type HelpfulValues = "helpful" | "not-helpful" | "";
 
 // TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
 // TODO: ASK: should classOf be a Date object?
-// TODO: add a callback function for when the up/down toggles are enabled/disabled
 export default function ProfileReview({
     score,
     major,
     classOf,
     datePosted,
+    helpfulInitState,
     children,
     onHelpfulToggle
 }: PropsWithChildren<{
@@ -30,19 +30,21 @@ export default function ProfileReview({
     major: string;
     classOf: number;
     datePosted: Date;
+    helpfulInitState?: HelpfulValues;
     onHelpfulToggle?: (value: HelpfulValues) => void;
 }>) {
-    // TODO: update this state
-    const [helpfulValue, setHelpfulValue] = useState<HelpfulValues>(undefined);
+    const [helpfulState, setHelpfulState] = useState<HelpfulValues>(helpfulInitState ?? "");
 
     function changeValue(value: string) {
         switch (value) {
             case "helpful":
             case "not-helpful":
+                setHelpfulState(value);
                 onHelpfulToggle?.(value);
                 break;
             default:
-                onHelpfulToggle?.(undefined);
+                setHelpfulState("");
+                onHelpfulToggle?.("");
         }
     }
 
@@ -72,7 +74,7 @@ export default function ProfileReview({
                 </div>
                 <ToggleGroup
                     type="single"
-                    value={helpfulValue}
+                    value={helpfulState}
                     onValueChange={(value) => changeValue(value)}
                 >
                     <ToggleGroupItem value="helpful" aria-label="Toggle helpful">
