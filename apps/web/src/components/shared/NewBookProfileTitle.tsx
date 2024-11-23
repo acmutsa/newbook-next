@@ -1,7 +1,15 @@
+// shadcn components
 import {
     Card
 } from "@/components/ui/card";
 
+/**
+    A title card with details relevant to a person's profile (name, title/position, and unit/department)
+    @param {string} name The person's name.
+    @param {string} title The person's job title / position.
+    @param {string} unit The unit/department that the person belongs to.
+    @returns A React title card component.
+*/
 export default function ProfileTitleCard({
     name,
     title,

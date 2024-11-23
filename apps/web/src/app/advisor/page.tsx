@@ -18,6 +18,10 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { CalendarCheck, SquareCheckBig, Laugh, HeartHandshake, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button";
 
+/**
+ * The page for an advisor review. Currently pulls test data from lib/test-data.ts.
+ * @returns A React page component.
+ */
 export default function Page() {
     const advisorReviews = [ratingOne, ratingTwo];
     const advisorProfileData = advisorOne;
