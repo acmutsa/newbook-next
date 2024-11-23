@@ -16,7 +16,6 @@ import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import ScoreIcon from "@/components/shared/NewBookScoreIcon";
 // Icons
 import { ThumbsUp, ThumbsDown } from "lucide-react";
-import { PropsWithChildren } from "react";
 
 // Possible "helpful" values
 type HelpfulValues = "helpful" | "not-helpful" | "";
