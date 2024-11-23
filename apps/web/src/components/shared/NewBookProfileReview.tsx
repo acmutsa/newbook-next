@@ -30,7 +30,7 @@ export default function ProfileReview({
     major: string;
     classOf: number;
     datePosted: Date;
-    onHelpfulToggle: (value: HelpfulValues) => void;
+    onHelpfulToggle?: (value: HelpfulValues) => void;
 }>) {
     // TODO: update this state
     const [helpfulValue, setHelpfulValue] = useState<HelpfulValues>(undefined);
@@ -39,10 +39,10 @@ export default function ProfileReview({
         switch (value) {
             case "helpful":
             case "not-helpful":
-                onHelpfulToggle(value);
+                onHelpfulToggle?.(value);
                 break;
             default:
-                onHelpfulToggle(undefined);
+                onHelpfulToggle?.(undefined);
         }
     }
 
