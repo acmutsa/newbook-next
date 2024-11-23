@@ -64,7 +64,6 @@ export default function Page() {
                                 classOf={2024}
                                 datePosted={new Date(1732024030000)}
                                 helpfulInitState={"not-helpful"}
-                                onHelpfulToggle={(value) => { console.log(value)}}
                             >
                                 They were nice, but they forgot to tell me this deadline that I almost missed. Double-check your DegreeWorks!
                             </ProfileReview>
