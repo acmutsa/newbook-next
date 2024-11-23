@@ -1,5 +1,8 @@
 "use client";
 
+// React imports
+import { PropsWithChildren, useState } from "react";
+// shadcn components
 import {
     Card,
     CardHeader,
@@ -8,15 +11,30 @@ import {
     CardTitle,
     CardDescription
 } from "@/components/ui/card";
-import ScoreIcon from "@/components/shared/NewBookScoreIcon";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+// Newbook components
+import ScoreIcon from "@/components/shared/NewBookScoreIcon";
+// Icons
 import { ThumbsUp, ThumbsDown } from "lucide-react";
-import { PropsWithChildren, useState } from "react";
 
+// Possible "helpful" types
 type HelpfulValues = "helpful" | "not-helpful" | "";
 
 // TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
 // TODO: ASK: should classOf be a Date object?
+
+/**
+ * A card with a student review, to be used on a person's profile. Elements (such as the review's text content) may be inserted as
+ * child elements.
+ * @param {number} score A numeric score.
+ * @param {string} major The student's major.
+ * @param {number} classOf The student's graduation year.
+ * @param {Date} datePosted The date this review was posted, as a Date object.
+ * @param {HelpfulValues} helpfulInitState The state of the "Was this review helpful?" toggle ("helpful", "not-helpful", or "").
+ * @param onHelpfulToggle A callback function to react to selections on the "Was this review helpful?" toggle, in the format (value) => void,
+ * with the value as either "helpful", "not-helpful", or "".
+ * @returns A React profile review card component.
+ */
 export default function ProfileReview({
     score,
     major,
