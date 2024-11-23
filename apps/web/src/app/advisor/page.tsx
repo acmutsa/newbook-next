@@ -27,7 +27,7 @@ export default function Page() {
         <main className="container mx-auto flex flex-col min-h-screen justify-center">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-2">
                 {/* Desktop left-side pane */}
-                <div className="flex flex-col gap-2 lg:col-span-5">
+                <div className="flex flex-col gap-2 md:col-span-6 xl:col-span-5">
                     <div className="flex gap-2">
                         <ProfileTitleCard
                             name={advisorProfileData.firstname + " " + advisorProfileData.lastname}
@@ -59,7 +59,7 @@ export default function Page() {
                     </Card>
                 </div>
                 {/* Desktop right-side pane */}
-                <div className="lg:col-span-7">
+                <div className="md:col-span-6 xl:col-span-7">
                     <Card>
                         <CardHeader>
                             <CardTitle className="flex items-center">
