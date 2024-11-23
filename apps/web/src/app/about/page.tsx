@@ -59,6 +59,34 @@ export default function Page() {
 							No. This project has no affiliation with UTSA.
 						</AccordionContent>
 					</AccordionItem>
+					<AccordionItem value="item-2">
+						<AccordionTrigger>
+							How are the reviews and ratings on NewBook
+							collected?
+						</AccordionTrigger>
+						<AccordionContent>
+							All reviews and ratings are submitted by UTSA
+							students. We aim to create a safe and respectful
+							space for sharing honest experiences.
+						</AccordionContent>
+					</AccordionItem>
+					<AccordionItem value="item-3">
+						<AccordionTrigger>
+							Is my information anonymous when I submit a review?
+						</AccordionTrigger>
+						<AccordionContent>
+							Yes, all submissions are anonymous to ensure
+							students feel comfortable providing honest feedback.
+						</AccordionContent>
+					</AccordionItem>
+					<AccordionItem value="item-4">
+						<AccordionTrigger>
+							Is NewBook free to use?
+						</AccordionTrigger>
+						<AccordionContent>
+							Yes, NewBook is completely free for all users.
+						</AccordionContent>
+					</AccordionItem>
 				</Accordion>
 			</div>
 		</div>
