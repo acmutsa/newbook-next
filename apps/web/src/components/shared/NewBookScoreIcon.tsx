@@ -1,7 +1,15 @@
-import clsx from "clsx";
+// shadcn components
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+// CLSX
+import clsx from "clsx";
+// Constants
 import { PROFILE_MAX_OVERALL_SCORE } from "@/lib/constants";
 
+/**
+ * A small circle showing a score (out of PROFILE_MAX_OVERALL_SCORE in lib/constants.ts) with an inner glow colored to match the score.
+ * @param {number} score A numeric score.
+ * @returns A React score icon component.
+ */
 export default function ScoreIcon({
     score
 }: {

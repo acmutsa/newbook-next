@@ -1,6 +1,13 @@
+// CLSX
 import clsx from "clsx";
+// Constants
 import { PROFILE_MAX_OVERALL_SCORE } from "@/lib/constants";
 
+/**
+ * A score card showing a score (out of PROFILE_MAX_OVERALL_SCORE in lib/constants.ts) with an outer glow colored to match the score.
+ * @param {number} score A numeric score.
+ * @returns A React score card component.
+ */
 export default function ScoreCard({
     score
 }: {
