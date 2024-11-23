@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // React imports
 import { PropsWithChildren } from "react";
 // shadcn components
@@ -82,12 +83,25 @@ export default function ScoreDialCard({
 }
 =======
 import clsx from "clsx";
+=======
+// React imports
+import { PropsWithChildren } from "react";
+// shadcn components
+>>>>>>> 4e7b9b2 (Added JSDoc comments for component functions, organized imports for each component)
 import {
     Card,
 } from "@/components/ui/card";
-import { PropsWithChildren } from "react";
+// CLSX
+import clsx from "clsx";
+// Constants
 import { PROFILE_MAX_CATEGORY_SCORE } from "@/lib/constants";
 
+/**
+ * A score dial card showing a percent score, computed using the given score (out of PROFILE_MAX_CATEGORY_SCORE in lib/constants.ts),
+ * and colored to match the score. Other elements may be inserted into the card as children.
+ * @param {number} score A numeric score.
+ * @returns A React score dial card component.
+ */
 export default function ScoreDialCard({
     score,
     children,
