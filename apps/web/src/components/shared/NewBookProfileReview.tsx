@@ -17,10 +17,9 @@ import ScoreIcon from "@/components/shared/NewBookScoreIcon";
 // Icons
 import { ThumbsUp, ThumbsDown } from "lucide-react";
 
-// Possible "helpful" types
+// Possible "helpful" values
 type HelpfulValues = "helpful" | "not-helpful" | "";
 
-// TODO: rename to StudentReview since the params will make sense that way? maybe set up a more generic base for this too
 // TODO: ASK: should classOf be a Date object?
 
 /**
