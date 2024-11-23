@@ -1,3 +1,5 @@
+"use client";
+
 import ProfileReview from "@/components/shared/NewBookProfileReview"
 import ProfileTitleCard from "@/components/shared/NewBookProfileTitle"
 import ScoreCard from "@/components/shared/NewBookScoreCard"
@@ -61,6 +63,8 @@ export default function Page() {
                                 major="Computer science"
                                 classOf={2024}
                                 datePosted={new Date(1732024030000)}
+                                helpfulInitState={"not-helpful"}
+                                onHelpfulToggle={(value) => { console.log(value)}}
                             >
                                 They were nice, but they forgot to tell me this deadline that I almost missed. Double-check your DegreeWorks!
                             </ProfileReview>
