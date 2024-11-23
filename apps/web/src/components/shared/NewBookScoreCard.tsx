@@ -11,11 +11,11 @@ export default function ScoreCard({
     const scorePercent = ( score == undefined ) ? NaN
                                                 : ( score < 0 ) ? 0
                                                                 : ( score > PROFILE_MAX_OVERALL_SCORE ) ? PROFILE_MAX_OVERALL_SCORE
-                                                                                        : ( score / PROFILE_MAX_OVERALL_SCORE );
+                                                                                                        : ( score / PROFILE_MAX_OVERALL_SCORE );
     
     return (
         <div className={clsx(
-            "flex flex-col items-center place-content-center p-6 rounded-xl bg-card font-black shadow-[0_0_1em_0.05em_#000]",
+            "flex flex-col items-center place-content-center p-6 rounded-xl bg-card font-black shadow-[0_0_1em_0.05em_rgb(0_0_0_/_0.3)]",
             {
                 "shadow-score-0": ( scorePercent >= 0 ) && ( scorePercent < 0.2 ),
                 "shadow-score-1": ( scorePercent >= 0.2 ) && ( scorePercent < 0.4 ),
@@ -24,13 +24,17 @@ export default function ScoreCard({
                 "shadow-score-4": ( scorePercent >= 0.8 ),
             },
         )}>
-            <div className="text-6xl">
-                { score.toFixed(1) ?? NaN }
+            <div className="text-6xl whitespace-nowrap">
+                { ( !Number.isNaN(scorePercent) ) ? score.toFixed(1) : "N/A" }
             </div>
             <div className="text-2xl text-slate-500">
-                <span className="sr-only">out of</span>
-                <span className="not-sr-only">/ </span>
-                { PROFILE_MAX_OVERALL_SCORE ?? NaN }
+                
+                { ( !Number.isNaN(scorePercent) ) &&    <>
+                                                            <span className="sr-only">out of</span>
+                                                            <span className="not-sr-only">/ </span>
+                                                            {PROFILE_MAX_OVERALL_SCORE}
+                                                        </>
+                }
             </div>
         </div>
     )
