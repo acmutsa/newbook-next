@@ -31,10 +31,10 @@ export default function ScoreCard({
                 "shadow-score-4": ( scorePercent >= 0.8 ),
             },
         )}>
-            <div className="text-6xl whitespace-nowrap">
+            <div className="text-4xl sm:text-6xl whitespace-nowrap">
                 { ( !Number.isNaN(scorePercent) ) ? score.toFixed(1) : "N/A" }
             </div>
-            <div className="text-2xl text-slate-500">
+            <div className="text-xl sm:text-2xl text-slate-500">
                 
                 { ( !Number.isNaN(scorePercent) ) &&    <>
                                                             <span className="sr-only">out of</span>
