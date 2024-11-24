@@ -21,10 +21,10 @@ export default function ProfileTitleCard({
 }) {
     return (
         <Card className="bg-secondary grow p-6">
-            <div className="text-5xl font-black">
+            <div className="text-3xl sm:text-5xl font-black">
                 { name ?? "ProfileName" }
             </div>
-            <div className="text-xl font-semibold">
+            <div className="text-md sm:text-xl font-semibold">
                 { title ?? "ProfileTitle" }, { unit ?? "ProfileUnit" }
             </div>
         </Card>
