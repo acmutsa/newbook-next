@@ -20,8 +20,6 @@ import { ThumbsUp, ThumbsDown } from "lucide-react";
 // Possible "helpful" values
 type HelpfulValues = "helpful" | "not-helpful" | "";
 
-// TODO: ASK: should classOf be a Date object?
-
 /**
  * A card with a student review, to be used on a person's profile. Elements (such as the review's text content) may be inserted as
  * child elements.
