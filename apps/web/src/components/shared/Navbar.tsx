@@ -12,7 +12,7 @@ export default function Navbar() {
 						</h1>
 					</Link>
 				</div>
-				<div className="flex items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue">
+				<div className="hidden items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue md:flex">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
 					<Link href={"/policy"}>Policies</Link>
