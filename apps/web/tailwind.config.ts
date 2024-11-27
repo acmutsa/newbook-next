@@ -60,7 +60,7 @@ const config: Config = {
 					"5": "hsl(var(--chart-5))",
 				},
 				// Scale for score-based coloring
-				"score": {
+				score: {
 					"0": "rgb(150,0,0)",
 					"1": "rgb(255,40,0)",
 					"2": "rgb(255,180,0)",
