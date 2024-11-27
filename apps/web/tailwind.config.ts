@@ -13,6 +13,20 @@ const config: Config = {
 				noto: "var(--font-notosans)",
 				eb: "var(--font-eb)",
 			},
+			keyframes: {
+				"accordion-down": {
+					from: { height: "0" },
+					to: { height: "var(--radix-accordion-content-height)" },
+				},
+				"accordion-up": {
+					from: { height: "var(--radix-accordion-content-height)" },
+					to: { height: "0" },
+				},
+			},
+			animation: {
+				"accordion-down": "accordion-down 0.2s ease-out",
+				"accordion-up": "accordion-up 0.2s ease-out",
+			},
 			colors: {
 				"utsa-orange": "hsl(var(--utsa-orange))",
 				"utsa-blue": "hsl(var(--utsa-blue))",
