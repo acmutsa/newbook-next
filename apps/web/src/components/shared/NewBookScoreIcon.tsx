@@ -21,6 +21,7 @@ export default function ScoreIcon({ score }: { score: number }) {
 				: score > PROFILE_MAX_OVERALL_SCORE
 					? PROFILE_MAX_OVERALL_SCORE
 					: score / PROFILE_MAX_OVERALL_SCORE;
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 	return (
@@ -77,3 +78,29 @@ export default function ScoreIcon({
     );
 }
 >>>>>>> ecf4bf3 (Began work on score dial component; tweaked styling for score icon for user reviews)
+=======
+
+	return (
+		<Avatar>
+			<AvatarFallback
+				className={clsx(
+					"font-bold shadow-[inset_0_0_0.25em_0.05em_#000]",
+					{
+						"shadow-score-0":
+							scorePercent >= 0 && scorePercent < 0.2,
+						"shadow-score-1":
+							scorePercent >= 0.2 && scorePercent < 0.4,
+						"shadow-score-2":
+							scorePercent >= 0.4 && scorePercent < 0.6,
+						"shadow-score-3":
+							scorePercent >= 0.6 && scorePercent < 0.8,
+						"shadow-score-4": scorePercent >= 0.8,
+					},
+				)}
+			>
+				{score ? score.toFixed(1) : "N/A"}
+			</AvatarFallback>
+		</Avatar>
+	);
+}
+>>>>>>> 6ba7371 (Ran prettier formatting command)
