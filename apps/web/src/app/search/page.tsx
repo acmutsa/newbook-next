@@ -23,23 +23,21 @@ interface CourseItemProps {
 // 	{ title: "Mathematics 101", professor: "Dr. John Smith", crn: "CRN56712" },
 // ];
 
-export default async function Page(
-    props: {
-        searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
-    }
-) {
-    const searchParams = await props.searchParams;
-    if (!searchParams || !searchParams.q || searchParams.q.length == 0) {
+export default async function Page(props: {
+	searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+}) {
+	const searchParams = await props.searchParams;
+	if (!searchParams || !searchParams.q || searchParams.q.length == 0) {
 		return redirect("/");
 	}
 
-    const courseResults = await db
+	const courseResults = await db
 		.select()
 		.from(courses)
 		.where(
 			sql`to_tsvector('english', ${courses.title}) @@ websearch_to_tsquery('english', ${searchParams.q})`,
 		);
-    return (
+	return (
 		<div className="mx-auto flex min-h-screen w-screen max-w-4xl flex-col pt-[25vh] text-utsa-blue">
 			<h1 className="pb-20 font-eb text-8xl">Results</h1>
 
