@@ -73,6 +73,14 @@ const config: Config = {
 					"4": "hsl(var(--chart-4))",
 					"5": "hsl(var(--chart-5))",
 				},
+				// Scale for score-based coloring
+				score: {
+					"0": "rgb(150,0,0)",
+					"1": "rgb(255,40,0)",
+					"2": "rgb(255,180,0)",
+					"3": "rgb(230,255,0)",
+					"4": "rgb(120,230,0)",
+				},
 			},
 			borderRadius: {
 				lg: "var(--radius)",
