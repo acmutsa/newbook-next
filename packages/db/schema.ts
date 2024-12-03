@@ -25,7 +25,7 @@ export const advisors = pgTable("advisors", {
 	firstname: text("firstname").notNull(),
 	lastname: text("lastname").notNull(),
 	scrapedString: text("scraped_string").notNull().unique(),
-	college: text("college").notNull(),
+	unit: text("unit").notNull(),
 });
 
 export const advisorRelations = relations(advisors, ({ many }) => ({
