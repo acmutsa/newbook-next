@@ -1,4 +1,5 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { SidebarTrigger } from "../ui/sidebar";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -11,6 +12,9 @@ export default function Navbar() {
 							NewBook
 						</h1>
 					</Link>
+				</div>
+				<div className="flex items-center justify-end gap-x-4 md:hidden">
+					<SidebarTrigger />
 				</div>
 				<div className="hidden items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue md:flex">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>

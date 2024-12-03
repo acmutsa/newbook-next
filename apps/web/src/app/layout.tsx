@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import { Noto_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/shared/app-sidebar";
 import {
 	ClerkProvider,
 	SignInButton,
@@ -37,8 +39,11 @@ export default function RootLayout({
 				<body
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
-					<Navbar />
-					{children}
+					<SidebarProvider>
+						<Navbar />
+						<AppSidebar />
+						{children}
+					</SidebarProvider>
 				</body>
 			</html>
 		</ClerkProvider>
