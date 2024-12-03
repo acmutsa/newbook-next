@@ -10,7 +10,7 @@
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.7.1",
+    "@clerk/nextjs": "^6.6.0",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-slot": "^1.1.0",
