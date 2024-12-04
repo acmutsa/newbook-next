@@ -21,11 +21,11 @@ export default function SearchBar() {
 				onKeyDown={(e) => {
 					if (e.key === "Enter") triggerSearch();
 				}}
-				className="h-full w-screen max-w-[500px] rounded-xl border border-utsa-blue bg-utsa-blue/15 px-5 font-noto text-xl font-semibold !text-utsa-blue text-black"
+				className="bg-utsa-blue/15 h-full w-screen max-w-[500px] rounded-xl border border-utsa-blue px-5 font-noto text-xl font-semibold !text-utsa-blue text-black"
 			></input>
 			<button
 				onClick={triggerSearch}
-				className="flex aspect-square h-full items-center justify-center rounded-xl border border-utsa-blue bg-utsa-blue/15"
+				className="bg-utsa-blue/15 flex aspect-square h-full items-center justify-center rounded-xl border border-utsa-blue"
 			>
 				<Search color="#0C2440" />
 			</button>
