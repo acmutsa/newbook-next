@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Skeleton } from "../ui/skeleton";
 import { Suspense } from "react";
 import UserAvatarButton from "./UserAvatarButton";
+
 export default function Navbar() {
 	return (
 		<nav className="fixed top-0 h-20 w-screen">

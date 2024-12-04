@@ -1,5 +1,14 @@
-import { SignUp } from '@clerk/nextjs'
+import { SignUp } from "@clerk/nextjs";
 
 export default function Page() {
-  return <SignUp fallbackRedirectUrl={"/onboarding"} />
+	return (
+		<div className="flex min-h-screen items-center justify-center">
+			<SignUp
+				signInFallbackRedirectUrl={"/"}
+				fallbackRedirectUrl={"/onboarding"}
+			/>
+		</div>
+	);
 }
+
+export const runtime = "edge";

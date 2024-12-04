@@ -1,18 +1,24 @@
-import { getUser } from "db"
-import { auth } from "@clerk/nextjs/server"
+import { getUser } from "db";
+import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-export default async function OnboardingPage(){
-  const { userId } = await auth();
-  // protected by the clerkMiddleware so we know this id will exist
-  const currentUser = await getUser(userId!);
+import OnboardingForm from "@/components/onboarding/OnboardingForm";
+export default async function OnboardingPage() {
+	const currUser = await currentUser();
+	if (!currUser || !currUser.id) redirect("/sign-in");
+	// protected by the clerkMiddleware so we know this id will exist
+	const user = await getUser(currUser.id);
 
-  if (currentUser){
-    return redirect("/");
-  }
+	if (user) {
+		return redirect("/");
+	}
 
-  return (
-    <div>
-      <h1>Onboarding</h1>
-    </div>
-  )
+	return (
+		<div className="h-screen w-screen">
+			<OnboardingForm
+				firstName={currUser.firstName}
+				lastName={currUser.lastName}
+				email={currUser.emailAddresses[0].emailAddress}
+			/>
+		</div>
+	);
 }
