@@ -1,6 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { SidebarTrigger } from "../ui/sidebar";
+import { SidebarTrigger, SidebarProvider } from "../ui/sidebar";
 import Link from "next/link";
+import { Button } from "../ui/button";
+import { Menu } from "lucide-react";
 
 export default function Navbar() {
 	return (
@@ -14,7 +16,14 @@ export default function Navbar() {
 					</Link>
 				</div>
 				<div className="flex items-center justify-end gap-x-4 md:hidden">
-					<SidebarTrigger />
+					<Button
+						variant="ghost"
+						size="icon"
+						className="mr-2 md:hidden"
+					>
+						<Menu className="h-6 w-6" />
+						<span className="sr-only">Toggle Sidebar</span>
+					</Button>
 				</div>
 				<div className="hidden items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue md:flex">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
