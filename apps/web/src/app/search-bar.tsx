@@ -13,16 +13,16 @@ export default function SearchBar() {
 		// console.log("Am I loading? " + isLoading);
 	}, [isLoading] );
 
-	// function wait(ms: number) {
-	// 	return new Promise(resolve=>setTimeout(resolve,ms));
-	// }
+	function wait(ms: number) {
+		return new Promise(resolve=>setTimeout(resolve,ms));
+	}
 
 	async function triggerSearch() {
 		const sv = searchValue.trim();
 		if (sv.length > 0) {
 			setLoading(true);
 			await router.push(`/search?q=${encodeURIComponent(sv)}`);
-			// await wait(5000);
+			await wait(9999999999);
 			setLoading(false);
 		}
 	}
@@ -32,8 +32,10 @@ export default function SearchBar() {
 		<div>
 
 			{isLoading && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="loader"></div>
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
+                    <div className="flex justify-center items-center text-5xl animate-bounce">
+						🐸
+					</div>
                 </div>
             )}
 
