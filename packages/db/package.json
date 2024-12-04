@@ -9,6 +9,7 @@
     "migrations:apply": "node -r esbuild-register migrate.ts",
     "migrations:drop": "drizzle-kit drop",
     "migrations:push": "drizzle-kit push",
+    "migrations:pull": "drizzle-kit pull",
     "kit:up": "drizzle-kit up",
     "studio": "drizzle-kit studio"
   },
