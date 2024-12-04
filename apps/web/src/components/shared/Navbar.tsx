@@ -1,6 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
-
+import { Skeleton } from "../ui/skeleton";
+import { Suspense } from "react";
+import UserAvatarButton from "./UserAvatarButton";
 export default function Navbar() {
 	return (
 		<nav className="fixed top-0 h-20 w-screen">
@@ -16,10 +18,9 @@ export default function Navbar() {
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
 					<Link href={"/policy"}>Policies</Link>
-					<Avatar className="ml-3">
-						<AvatarImage src="https://github.com/shadcn.png" />
-						<AvatarFallback>CN</AvatarFallback>
-					</Avatar>
+					<Suspense fallback={<Skeleton className="h-10 w-10" />}>
+						<UserAvatarButton />
+					</Suspense>
 				</div>
 			</div>
 		</nav>
