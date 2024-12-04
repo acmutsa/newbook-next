@@ -42,9 +42,9 @@ export default function RootLayout({
 					<SidebarProvider>
 						<div className="flex min-h-screen flex-col">
 							<Navbar />
+							<MobileSidebar />
 							<div className="flex flex-1">
-								<MobileSidebar />
-								<main className="flex-1">{children}</main>
+								<main className="">{children}</main>
 							</div>
 						</div>
 					</SidebarProvider>
