@@ -1,25 +1,13 @@
-// React imports
 import { PropsWithChildren } from "react";
-// shadcn components
 import { Card } from "@/components/ui/card";
-// CLSX
-import clsx from "clsx";
-// Constants
 import { PROFILE_MAX_CATEGORY_SCORE } from "@/lib/constants";
 
-/**
- * A score dial card showing a percent score, computed using the given score (out of PROFILE_MAX_CATEGORY_SCORE in lib/constants.ts),
- * and colored to match the score. Other elements may be inserted into the card as children.
- * @param {number} score A numeric score.
- * @returns A React score dial card component.
- */
 export default function ScoreDialCard({
 	score,
 	children,
 }: PropsWithChildren<{
 	score: number;
 }>) {
-	// Check if score is given, and if percent is in range, and hit corresponding min/max otherwise
 	const scorePercent =
 		score == undefined
 			? NaN
@@ -33,39 +21,34 @@ export default function ScoreDialCard({
 	const strokeFillPercent = strokeFill * scorePercent;
 
 	return (
-		<Card className="flex flex-col items-center p-4">
+		<div className="flex aspect-square w-full flex-col items-center p-4">
 			<svg
-				className={clsx("rotate-180", {
-					"stroke-score-0": scorePercent >= 0 && scorePercent < 0.2,
-					"stroke-score-1": scorePercent >= 0.2 && scorePercent < 0.4,
-					"stroke-score-2": scorePercent >= 0.4 && scorePercent < 0.6,
-					"stroke-score-3": scorePercent >= 0.6 && scorePercent < 0.8,
-					"stroke-score-4": scorePercent >= 0.8,
-				})}
+				className="rotate-180"
 				height="6em"
 				width="6em"
 				viewBox="0 0 20 20"
 			>
 				<path
 					fill="#ffffff"
-					stroke="#ededed"
-					stroke-width="3"
+					stroke="#7A95B3"
+					strokeWidth="3"
 					d=" M 1.5 10
-                        a 0.5 0.5 0 0 0 17 0"
+						a 0.5 0.5 0 0 0 17 0"
 				/>
 				<circle
 					r={outerRadius}
-					fill-opacity="0"
+					fillOpacity="0"
 					cx="10"
 					cy="10"
-					stroke-width="10"
-					stroke-dasharray={`${strokeFillPercent ?? 0} ${strokeFill * 2}`}
+					strokeWidth="10"
+					stroke="#0C2440"
+					strokeDasharray={`${strokeFillPercent ?? 0} ${strokeFill * 2}`}
 				/>
 				<path
-					fill="#ffffff"
-					stroke-width="0"
+					fill="#EBE7DD"
+					strokeWidth="0"
 					d=" M 1.5 10
-                        a 0.5 0.5 0 0 0 17 0"
+						a 0.5 0.5 0 0 0 17 0"
 				/>
 			</svg>
 			<div className="z-10 -mt-[4.25rem] flex flex-col items-center">
@@ -76,6 +59,6 @@ export default function ScoreDialCard({
 				</div>
 				<div className="flex items-center gap-1">{children}</div>
 			</div>
-		</Card>
+		</div>
 	);
 }
