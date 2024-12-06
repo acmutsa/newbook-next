@@ -1,3 +1,5 @@
+import z from "zod";
+import { createUserSchema } from "./zod";
 export type CourseScrapeData = {
 	semester: string;
 	crn: string;
@@ -6,3 +8,4 @@ export type CourseScrapeData = {
 	instructor: string;
 	// textbook?: string;
 };
+export type CreateUserSchemaType = z.infer<typeof createUserSchema>;
