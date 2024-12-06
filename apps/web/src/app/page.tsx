@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Search } from "lucide-react";
 import SearchBar from "./search-bar";
-import Navbar from "@/components/shared/Navbar";
+
 export default function Home() {
 	return (
 		<>
