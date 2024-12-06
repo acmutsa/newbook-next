@@ -8,9 +8,9 @@ import { titleCase } from "@/lib/utils";
 export default async function Page({
 	searchParams,
 }: {
-	searchParams: { id?: string };
+	searchParams: Promise<{ id: string }>;
 }) {
-	const id = searchParams.id;
+	const id = (await searchParams).id;
 
 	if (!id) {
 		return notFound();
