@@ -56,22 +56,23 @@ export default async function Page({
 				<div className="flex h-full max-h-[188px] items-start justify-between">
 					<div className="flex flex-col items-start justify-center gap-y-3">
 						<h1 className="font-eb text-7xl">
-							{advisor.name.split(" ").map((name) => (
-								<>
-									<span>{name}</span>
+							{advisor.name.split(" ").map((name, index) => (
+								<span key={index}>
+									{name}
 									<br />
-								</>
+								</span>
 							))}
 						</h1>
 						<h2 className="text-xs font-bold">
 							{advisor.unit.map((x, idx) => (
-								<>
-									<span>
-										{titleCase(x)}
-										{idx !== advisor.unit.length - 1 && ","}
-									</span>
-									{idx !== advisor.unit.length - 1 && <br />}
-								</>
+								<span key={idx}>
+									{titleCase(x)}
+									{idx !== advisor.unit.length - 1 && (
+										<>
+											,<br />
+										</>
+									)}
+								</span>
 							))}
 						</h2>
 					</div>
