@@ -22,10 +22,11 @@ export const instructors = pgTable("instructors", {
 
 export const advisors = pgTable("advisors", {
 	id: serial("id").primaryKey(),
-	firstname: text("firstname").notNull(),
-	lastname: text("lastname").notNull(),
-	scrapedString: text("scraped_string").notNull().unique(),
-	college: text("college").notNull(),
+	emailKey: text("email_key").notNull().unique(),
+	name: text("name").notNull(),
+	email: text("email").notNull(),
+	imageUrl: text("image_url").notNull(),
+	unit: text("unit").array().notNull(),
 });
 
 export const advisorRelations = relations(advisors, ({ many }) => ({

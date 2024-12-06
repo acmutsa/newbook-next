@@ -1,0 +1,17 @@
+{
+  "name": "advisor-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scrape": "bun run --env-file=../../.env index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jsdom": "^21.1.7",
+    "jsdom": "^25.0.1",
+    "db": "workspace:*"
+  }
+}

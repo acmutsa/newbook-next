@@ -15,12 +15,20 @@ const config: Config = {
 			},
 			keyframes: {
 				"accordion-down": {
-					from: { height: "0" },
-					to: { height: "var(--radix-accordion-content-height)" },
+					from: {
+						height: "0",
+					},
+					to: {
+						height: "var(--radix-accordion-content-height)",
+					},
 				},
 				"accordion-up": {
-					from: { height: "var(--radix-accordion-content-height)" },
-					to: { height: "0" },
+					from: {
+						height: "var(--radix-accordion-content-height)",
+					},
+					to: {
+						height: "0",
+					},
 				},
 			},
 			animation: {
@@ -73,7 +81,6 @@ const config: Config = {
 					"4": "hsl(var(--chart-4))",
 					"5": "hsl(var(--chart-5))",
 				},
-				// Scale for score-based coloring
 				score: {
 					"0": "rgb(150,0,0)",
 					"1": "rgb(255,40,0)",
