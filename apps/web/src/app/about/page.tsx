@@ -5,7 +5,6 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
-import Navbar from "@/components/shared/Navbar";
 
 export default function Page() {
 	return (
