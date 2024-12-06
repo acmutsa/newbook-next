@@ -9,9 +9,11 @@ import {
 	HeartHandshake,
 	Laugh,
 	Mail,
+	PlusCircle,
 	SquareCheckBig,
 } from "lucide-react";
 import { CalendarCheck, CalendarClock, CirclePlus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default async function Page({
 	params,
@@ -148,10 +150,14 @@ export default async function Page({
 					</p>
 				</div>
 			</div>
-			<div className="col-span-3">
-				<h3 className="font-eb text-2xl font-semibold">
-					Category ratings
-				</h3>
+			<div className="col-span-3 pl-10">
+				<div className="flex items-center justify-between rounded-lg bg-utsa-blue p-7">
+					<h3 className="font-eb text-4xl text-white">Reviews</h3>
+					<Button className="dark flex items-center gap-x-2 font-bold text-utsa-blue">
+						<PlusCircle strokeWidth="3" size="1em" />
+						New Review
+					</Button>
+				</div>
 			</div>
 		</div>
 	);
