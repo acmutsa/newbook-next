@@ -37,6 +37,7 @@ export default function RootLayout({
 				<body
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
+					<Navbar />
 					{children}
 				</body>
 			</html>
