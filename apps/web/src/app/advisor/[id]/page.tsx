@@ -9,9 +9,11 @@ import {
 	HeartHandshake,
 	Laugh,
 	Mail,
+	PlusCircle,
 	SquareCheckBig,
 } from "lucide-react";
 import { CalendarCheck, CalendarClock, CirclePlus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default async function Page({
 	params,
@@ -56,22 +58,23 @@ export default async function Page({
 				<div className="flex h-full max-h-[188px] items-start justify-between">
 					<div className="flex flex-col items-start justify-center gap-y-3">
 						<h1 className="font-eb text-7xl">
-							{advisor.name.split(" ").map((name) => (
-								<>
-									<span>{name}</span>
+							{advisor.name.split(" ").map((name, index) => (
+								<span key={index}>
+									{name}
 									<br />
-								</>
+								</span>
 							))}
 						</h1>
 						<h2 className="text-xs font-bold">
 							{advisor.unit.map((x, idx) => (
-								<>
-									<span>
-										{titleCase(x)}
-										{idx !== advisor.unit.length - 1 && ","}
-									</span>
-									{idx !== advisor.unit.length - 1 && <br />}
-								</>
+								<span key={idx}>
+									{titleCase(x)}
+									{idx !== advisor.unit.length - 1 && (
+										<>
+											,<br />
+										</>
+									)}
+								</span>
 							))}
 						</h2>
 					</div>
@@ -147,10 +150,14 @@ export default async function Page({
 					</p>
 				</div>
 			</div>
-			<div className="col-span-3">
-				<h3 className="font-eb text-2xl font-semibold">
-					Category ratings
-				</h3>
+			<div className="col-span-3 pl-10">
+				<div className="flex items-center justify-between rounded-lg bg-utsa-blue p-7">
+					<h3 className="font-eb text-4xl text-white">Reviews</h3>
+					<Button className="dark flex items-center gap-x-2 font-bold text-utsa-blue">
+						<PlusCircle strokeWidth="3" size="1em" />
+						New Review
+					</Button>
+				</div>
 			</div>
 		</div>
 	);
