@@ -79,7 +79,7 @@ export default function OnboardingForm({
 								complete registration.
 							</h3>
 						</div>
-						<div className="flex flex-col space-y-8 rounded-lg border border-utsa-blue p-5 text-utsa-blue">
+						<div className="flex flex-col space-y-8 rounded-lg border-2 shadow-lg border-utsa-blue p-5 text-utsa-blue">
 							<div className="flex flex-row justify-between gap-x-4 text-utsa-blue">
 								<FormField
 									control={form.control}
@@ -123,7 +123,7 @@ export default function OnboardingForm({
 										<FormControl>
 											<Input {...field} disabled />
 										</FormControl>
-										<FormDescription>
+										<FormDescription className="text-red-500">
 											This value cannot be changed.
 										</FormDescription>
 										<FormMessage />
@@ -150,11 +150,11 @@ export default function OnboardingForm({
 								)}
 							/>
 							<Button
-								className="max-w-[30%] bg-utsa-blue"
+								className="max-w-[25%] bg-utsa-blue"
 								type="submit"
 								disabled={isExecuting}
 							>
-								Submit
+								Sign Up
 							</Button>
 						</div>
 					</form>
