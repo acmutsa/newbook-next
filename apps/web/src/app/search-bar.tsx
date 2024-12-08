@@ -9,35 +9,33 @@ export default function SearchBar() {
 
 	const router = useRouter();
 
-	useEffect (() => {
-		// console.log("Am I loading? " + isLoading);
-	}, [isLoading] );
+	useEffect(() => {
+		console.log("Am I loading? " + isLoading);
+	}, [isLoading]);
 
-	function wait(ms: number) {
-		return new Promise(resolve=>setTimeout(resolve,ms));
-	}
+	// function wait(ms: number) {
+	// 	return new Promise((resolve) => setTimeout(resolve, ms));
+	// }
 
 	async function triggerSearch() {
 		const sv = searchValue.trim();
 		if (sv.length > 0) {
 			setLoading(true);
 			await router.push(`/search?q=${encodeURIComponent(sv)}`);
-			await wait(9999999999);
+			// await wait(9999999999);
 			setLoading(false);
 		}
 	}
 
 	return (
-
 		<div>
-
 			{isLoading && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
-                    <div className="flex justify-center items-center text-5xl animate-bounce">
+				<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
+					<div className="flex animate-bounce items-center justify-center text-5xl">
 						🐸
 					</div>
-                </div>
-            )}
+				</div>
+			)}
 
 			<div className="flex h-16 gap-x-2">
 				<input
@@ -56,7 +54,5 @@ export default function SearchBar() {
 				</button>
 			</div>
 		</div>
-		
-		
 	);
 }

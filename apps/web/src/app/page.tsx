@@ -12,7 +12,7 @@ export default function Home() {
 				<h2 className="pb-20 pt-3 font-eb text-xl font-bold text-utsa-blue">
 					What can we help you find today?
 				</h2>
-				<SearchBar />				
+				<SearchBar />
 			</div>
 		</main>
 	);
