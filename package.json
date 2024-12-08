@@ -31,5 +31,11 @@
     "@radix-ui/react-accordion": "^1.2.1",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   }
 }
