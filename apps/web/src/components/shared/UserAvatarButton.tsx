@@ -3,15 +3,8 @@ import { currentUser } from "@clerk/nextjs/server";
 import { getUser } from "db";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import {
-	DropdownMenu,
-	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
-	DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { SignOutButton } from "@clerk/nextjs";
+
 export default async function UserAvatarButton() {
 	const currUser = await currentUser();
 	if (!currUser) {
@@ -46,13 +39,12 @@ export default async function UserAvatarButton() {
 	}
 
 	return (
-		<DropdownMenu>
-			<DropdownMenuTrigger>
-				<Avatar>
-					<AvatarImage src={currUser.imageUrl} />
-					<AvatarFallback>{`${user.firstname.at(0)}${user.lastname.charAt(0)}`}</AvatarFallback>
-				</Avatar>
-			</DropdownMenuTrigger>
-		</DropdownMenu>
+		<div className="flex flex-row items-center justify-center gap-x-4">
+			<SignOutButton />
+			<Avatar>
+				<AvatarImage src={currUser.imageUrl} />
+				<AvatarFallback>{`${user.firstname.at(0)}${user.lastname.charAt(0)}`}</AvatarFallback>
+			</Avatar>
+		</div>
 	);
 }

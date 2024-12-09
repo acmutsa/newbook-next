@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Search } from "lucide-react";
 import SearchBar from "./search-bar";
-
+import Navbar from "@/components/shared/Navbar";
 export default function Home() {
 	return (
 		<>
+			<Navbar />
 			<main className="flex min-h-screen flex-col items-center justify-center bg-offwhite">
 				<div className="flex flex-col items-center justify-center">
 					<h1 className="font-eb text-8xl font-black text-utsa-blue">

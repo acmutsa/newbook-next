@@ -5,10 +5,12 @@ import {
 	AccordionItem,
 	AccordionTrigger,
 } from "@/components/ui/accordion";
+import Navbar from "@/components/shared/Navbar";
 
 export default function Page() {
 	return (
 		<>
+			<Navbar />
 			<div className="mx-auto w-screen max-w-7xl px-5 pt-20 text-utsa-blue">
 				<div className="items-left flex flex-col py-8">
 					<h1 className="font-eb text-6xl font-black">About Us</h1>

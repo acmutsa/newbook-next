@@ -70,7 +70,7 @@ export default function OnboardingForm({
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-8 rounded-lg"
+						className="max-w-[90%] space-y-8 rounded-lg md:w-auto"
 					>
 						<div className="flex w-full flex-col text-utsa-blue">
 							<h1 className="text-5xl font-black">Welcome!</h1>
@@ -79,7 +79,7 @@ export default function OnboardingForm({
 								complete registration.
 							</h3>
 						</div>
-						<div className="flex flex-col space-y-8 rounded-lg border border-utsa-blue p-5 text-utsa-blue">
+						<div className="flex flex-col space-y-8 rounded-lg border-2 border-utsa-blue p-5 text-utsa-blue shadow-lg">
 							<div className="flex flex-row justify-between gap-x-4 text-utsa-blue">
 								<FormField
 									control={form.control}
@@ -123,7 +123,7 @@ export default function OnboardingForm({
 										<FormControl>
 											<Input {...field} disabled />
 										</FormControl>
-										<FormDescription>
+										<FormDescription className="text-red-500">
 											This value cannot be changed.
 										</FormDescription>
 										<FormMessage />
@@ -150,11 +150,11 @@ export default function OnboardingForm({
 								)}
 							/>
 							<Button
-								className="max-w-[30%] bg-utsa-blue"
+								className="max-w-[25%] bg-utsa-blue"
 								type="submit"
 								disabled={isExecuting}
 							>
-								Submit
+								Sign Up
 							</Button>
 						</div>
 					</form>
@@ -189,7 +189,7 @@ function SuccessState() {
 	return (
 		<div className="flex flex-col items-center justify-center space-y-10">
 			<CircleCheckBig size={60} color="green" />
-			<h1 className="text-2xl font-semibold 2xl:text-3xl">{`Sucess Creating Registration. Redirecting in ${redirectCount}...`}</h1>
+			<h1 className="text-center text-2xl font-semibold 2xl:text-3xl">{`Success Creating Registration. Redirecting in ${redirectCount}...`}</h1>
 		</div>
 	);
 }
