@@ -39,12 +39,12 @@ export default async function UserAvatarButton() {
 	}
 
 	return (
-    <div className="flex flex-row items-center justify-center gap-x-4">
-      <SignOutButton/>
-      <Avatar>
-					<AvatarImage src={currUser.imageUrl} />
-					<AvatarFallback>{`${user.firstname.at(0)}${user.lastname.charAt(0)}`}</AvatarFallback>
-				</Avatar>
-    </div>
+		<div className="flex flex-row items-center justify-center gap-x-4">
+			<SignOutButton />
+			<Avatar>
+				<AvatarImage src={currUser.imageUrl} />
+				<AvatarFallback>{`${user.firstname.at(0)}${user.lastname.charAt(0)}`}</AvatarFallback>
+			</Avatar>
+		</div>
 	);
 }

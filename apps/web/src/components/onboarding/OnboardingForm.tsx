@@ -70,7 +70,7 @@ export default function OnboardingForm({
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-8 rounded-lg max-w-[90%] md:w-auto"
+						className="max-w-[90%] space-y-8 rounded-lg md:w-auto"
 					>
 						<div className="flex w-full flex-col text-utsa-blue">
 							<h1 className="text-5xl font-black">Welcome!</h1>
@@ -79,7 +79,7 @@ export default function OnboardingForm({
 								complete registration.
 							</h3>
 						</div>
-						<div className="flex flex-col space-y-8 rounded-lg border-2 shadow-lg border-utsa-blue p-5 text-utsa-blue">
+						<div className="flex flex-col space-y-8 rounded-lg border-2 border-utsa-blue p-5 text-utsa-blue shadow-lg">
 							<div className="flex flex-row justify-between gap-x-4 text-utsa-blue">
 								<FormField
 									control={form.control}
