@@ -70,7 +70,7 @@ export default function OnboardingForm({
 				<Form {...form}>
 					<form
 						onSubmit={form.handleSubmit(onSubmit)}
-						className="space-y-8 rounded-lg"
+						className="space-y-8 rounded-lg max-w-[90%] md:w-auto"
 					>
 						<div className="flex w-full flex-col text-utsa-blue">
 							<h1 className="text-5xl font-black">Welcome!</h1>
