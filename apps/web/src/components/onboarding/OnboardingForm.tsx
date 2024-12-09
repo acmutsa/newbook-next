@@ -180,7 +180,7 @@ function SuccessState() {
 	const { push } = useRouter();
 	useEffect(() => {
 		if (redirectCount === 0) {
-			// push("/");
+			push("/");
 		}
 	}, [redirectCount]);
 	setInterval(() => {
