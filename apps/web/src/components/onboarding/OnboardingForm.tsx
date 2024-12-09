@@ -189,7 +189,7 @@ function SuccessState() {
 	return (
 		<div className="flex flex-col items-center justify-center space-y-10">
 			<CircleCheckBig size={60} color="green" />
-			<h1 className="text-2xl font-semibold 2xl:text-3xl text-center">{`Success Creating Registration. Redirecting in ${redirectCount}...`}</h1>
+			<h1 className="text-center text-2xl font-semibold 2xl:text-3xl">{`Success Creating Registration. Redirecting in ${redirectCount}...`}</h1>
 		</div>
 	);
 }
