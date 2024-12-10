@@ -15,7 +15,7 @@ import { capitalizeWord } from "@/lib/utils";
 
 export default function SearchBar() {
 	const [searchValue, setSearchValue] = useState("");
-	const [searchType,setSearchType] = useState("");
+	const [searchType,setSearchType] = useState("advisors");
 	const searchOptions = ['courses', 'professors', 'advisors'];
 	const router = useRouter();
 
@@ -54,7 +54,9 @@ export default function SearchBar() {
 				onValueChange={(v) => {
 					setSearchType(v);
 				}}
+				defaultValue="advisors"
 			>
+				{/* Come back and fix how this looks on mobile */}
 				<SelectTrigger className="h-full border border-utsa-blue bg-utsa-blue/15">
 					<SelectValue
 						placeholder="Filter By..."

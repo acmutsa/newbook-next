@@ -7,6 +7,7 @@ import { JSX } from "react";
 import { FileQuestion } from "lucide-react";
 import Link from "next/link";
 import { capitalizeWord } from "@/lib/utils";
+import AdvisorView from "@/components/search/AdvisorView";
 
 export default async function Page(props: { searchParams?: SearchParamsType }) {
 	const searchParams = await props.searchParams;
@@ -26,7 +27,7 @@ export default async function Page(props: { searchParams?: SearchParamsType }) {
 		case "professors":
 			RenderElement=  null; // placeholder
 		case "advisors":
-			RenderElement =  null; // placeholder
+			RenderElement =  <AdvisorView searchParams={searchParams} />; // placeholder
 			break;
 		default:
 			RenderElement = null;
