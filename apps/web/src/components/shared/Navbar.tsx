@@ -1,46 +1,33 @@
-"use client";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { SidebarTrigger, SidebarProvider } from "../ui/sidebar";
 import Link from "next/link";
-import { Button } from "../ui/button";
-import { Menu } from "lucide-react";
-import { useSidebar } from "@/contexts/sidebar-context";
-
-interface NavbarProps {
-	onOpenSidebar: () => void;
-}
+import { Skeleton } from "../ui/skeleton";
+import { Suspense } from "react";
+import UserAvatarButton from "./UserAvatarButton";
+import { SidebarTrigger } from "./sidebar-trigger";
 
 export default function Navbar() {
-	const { toggle } = useSidebar();
 	return (
 		<nav className="fixed top-0 h-20 w-screen">
 			<div className="mx-auto grid h-full w-full max-w-7xl grid-cols-2 px-5">
-				<div className="flex items-center">
+				<div className="flex items-center gap-x-2">
 					<Link href={"/"}>
 						<h1 className="font-eb text-xl font-bold text-utsa-blue">
 							NewBook
 						</h1>
 					</Link>
+					<span className="rounded-sm border-2 border-utsa-blue px-1 text-[0.5rem] font-semibold">
+						ALPHA
+					</span>
 				</div>
 				<div className="flex items-center justify-end gap-x-4 md:hidden">
-					<Button
-						variant="ghost"
-						size="icon"
-						onClick={toggle}
-						className="mr-2 md:hidden"
-					>
-						<Menu className="h-6 w-6" />
-						<span className="sr-only">Toggle Sidebar</span>
-					</Button>
+					<SidebarTrigger />
 				</div>
 				<div className="hidden items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue md:flex">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
 					<Link href={"/policy"}>Policies</Link>
-					<Avatar className="ml-3">
-						<AvatarImage src="https://github.com/shadcn.png" />
-						<AvatarFallback>CN</AvatarFallback>
-					</Avatar>
+					<Suspense fallback={<Skeleton className="h-10 w-10" />}>
+						<UserAvatarButton />
+					</Suspense>
 				</div>
 			</div>
 		</nav>
