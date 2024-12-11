@@ -1,0 +1,1 @@
+ALTER TABLE "advisor_ratings" ADD COLUMN "title" text NOT NULL;

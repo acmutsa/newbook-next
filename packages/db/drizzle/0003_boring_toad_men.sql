@@ -1,0 +1,1 @@
+ALTER TABLE "advisor_ratings" DROP COLUMN IF EXISTS "title";

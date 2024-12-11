@@ -33,7 +33,14 @@ export default function RootLayout({
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
 					<Navbar />
-					<Toaster />
+					<Toaster
+						toastOptions={{
+							className: "text-offwhite",
+							classNames: {
+								toast: "bg-utsa-blue border-offwhite",
+							},
+						}}
+					/>
 					{children}
 				</body>
 			</html>

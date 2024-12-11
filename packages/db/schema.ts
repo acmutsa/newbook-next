@@ -61,6 +61,7 @@ export const users = pgTable("users", {
 
 export const userRelations = relations(users, ({ many }) => ({
 	authoredCourseInstructorRatings: many(courseInstructorRatings),
+	authoredAdvisorRatings: many(advisorRatings),
 }));
 
 export const courseInstructorRatings = pgTable("course_instructor_ratings", {
@@ -95,6 +96,9 @@ export const advisorRatings = pgTable("advisor_ratings", {
 	advisorID: integer("advisor_id").notNull(),
 	ratingValue: integer("rating_value").notNull(),
 	content: text("content"),
+	publiclyShowAuthorInfo: boolean("publicly_show_author_info")
+		.notNull()
+		.default(true),
 	createdAt: timestamp("created_at").notNull().defaultNow(),
 });
 
@@ -102,5 +106,9 @@ export const advisorRatingsRelations = relations(advisorRatings, ({ one }) => ({
 	advisor: one(advisors, {
 		fields: [advisorRatings.advisorID],
 		references: [advisors.id],
+	}),
+	author: one(users, {
+		fields: [advisorRatings.authorID],
+		references: [users.id],
 	}),
 }));

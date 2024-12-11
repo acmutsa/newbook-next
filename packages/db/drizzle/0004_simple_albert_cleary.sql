@@ -1,0 +1,1 @@
+ALTER TABLE "advisor_ratings" ADD COLUMN "publicly_show_author_info" boolean DEFAULT true NOT NULL;
