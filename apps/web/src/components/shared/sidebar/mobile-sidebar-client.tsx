@@ -2,9 +2,18 @@
 
 import { Sidebar } from "@/components/ui/sidebar";
 import { useSidebar } from "@/contexts/sidebar-context";
-import { ReactNode } from "react";
 
-export function MobileSidebarClient({ children }: { children: ReactNode }) {
+type MobileSidebarClientProps = {
+	header: React.ReactNode;
+	content: React.ReactNode;
+	footer: React.ReactNode;
+};
+
+export function MobileSidebarClient({
+	header,
+	content,
+	footer,
+}: MobileSidebarClientProps) {
 	const { isOpen, toggle } = useSidebar();
 
 	return (
@@ -14,7 +23,9 @@ export function MobileSidebarClient({ children }: { children: ReactNode }) {
 			onOpenChange={toggle}
 			className="fixed bottom-0 left-0 top-[57px] z-40 w-64 md:hidden"
 		>
-			{children}
+			{header}
+			{content}
+			{footer}
 		</Sidebar>
 	);
 }

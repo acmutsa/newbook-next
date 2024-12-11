@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import { Noto_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
-import { MobileSidebar } from "@/components/shared/mobile-sidebar";
+import { MobileSidebar } from "@/components/shared/sidebar/mobile-sidebar";
 import { SidebarProvider } from "@/contexts/sidebar-context";
 import {
 	ClerkProvider,

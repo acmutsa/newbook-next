@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Skeleton } from "../ui/skeleton";
 import { Suspense } from "react";
 import UserAvatarButton from "./UserAvatarButton";
-import { SidebarTrigger } from "./sidebar-trigger";
+import { SidebarTrigger } from "./sidebar/sidebar-trigger";
 
 export default function Navbar() {
 	return (
