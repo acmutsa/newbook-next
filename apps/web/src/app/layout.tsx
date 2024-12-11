@@ -44,7 +44,7 @@ export default function RootLayout({
 							<Navbar />
 							<div className="flex flex-1">
 								<MobileSidebar />
-								<main className="flex w-full flex-1 justify-center px-4">
+								<main className="flex w-screen flex-1 justify-center px-4">
 									{children}
 								</main>
 							</div>
