@@ -16,19 +16,21 @@ import { capitalizeWord } from "@/lib/utils";
 export default function SearchBar() {
 	const [searchValue, setSearchValue] = useState("");
 	// come back and change this
-	const [searchType,setSearchType] = useState("");
-	const searchOptions = [' ','courses', 'instructors', 'advisors'];
+	const [searchType, setSearchType] = useState("");
+	const searchOptions = [" ", "courses", "instructors", "advisors"];
 	const router = useRouter();
 
 	function triggerSearch() {
 		const sv = searchValue.trim();
 		if (sv.length > 0) {
-			router.push(`/search?q=${encodeURIComponent(sv)}&searchType=${searchType}`);
+			router.push(
+				`/search?q=${encodeURIComponent(sv)}&searchType=${searchType}`,
+			);
 		}
 	}
-	useEffect(()=>{
-		console.log('searchType:',searchType);
-	},[searchType])
+	useEffect(() => {
+		console.log("searchType:", searchType);
+	}, [searchType]);
 
 	return (
 		<div className="flex h-16 gap-x-2">
@@ -41,7 +43,7 @@ export default function SearchBar() {
 				<SelectTrigger className="h-full border border-utsa-blue bg-utsa-blue/15">
 					<SelectValue
 						placeholder="Filter By..."
-						className="font-eb placeholder:italic "
+						className="font-eb placeholder:italic"
 					/>
 					<Filter color="#0C2440" className="md:hidden" />
 				</SelectTrigger>

@@ -1,5 +1,5 @@
 import { db } from "db";
-import { sql,InferSelectModel } from "db/drizzle";
+import { sql, InferSelectModel } from "db/drizzle";
 import { instructors } from "db/schema";
 import { SearchParamsType } from "@/lib/types";
 import Link from "next/link";
@@ -28,7 +28,7 @@ export default async function InstructorView({
 						<InstructorItem
 							key={instructor.id}
 							instructor={{
-								...instructor
+								...instructor,
 							}}
 						/>
 					))}

@@ -1,6 +1,6 @@
 import { db } from "db";
-import { sql,eq,getTableColumns } from "db/drizzle";
-import { advisors,advisorRatings } from "db/schema";
+import { sql, eq, getTableColumns } from "db/drizzle";
+import { advisors, advisorRatings } from "db/schema";
 import { SearchParamsType } from "@/lib/types";
 import Link from "next/link";
 import NoResults from "./NoResults";
@@ -8,10 +8,10 @@ import { capitalizeWord } from "@/lib/utils";
 import ScoreDialCard from "../shared/NewBookScoreDial";
 import { CalendarCheck } from "lucide-react";
 interface AdvisorItemProps {
-  id:number;
-	name:string;
-  unit:Array<string>;
-  rating:number;
+	id: number;
+	name: string;
+	unit: Array<string>;
+	rating: number;
 }
 
 export default async function AdvisorView({
@@ -29,12 +29,12 @@ export default async function AdvisorView({
 		.from(advisors)
 		.leftJoin(advisorRatings, eq(advisors.id, advisorRatings.advisorID))
 		.where(
-			sql`to_tsvector('english', ${advisors.name}) @@ websearch_to_tsquery('english', ${searchParams.q+':*'})`,
+			sql`to_tsvector('english', ${advisors.name}) @@ websearch_to_tsquery('english', ${searchParams.q + ":*"})`,
 		)
 		.groupBy(advisors.id);
 
-    const searchValue = searchParams.q;
-    const isSearchValueString = typeof searchValue === "string";
+	const searchValue = searchParams.q;
+	const isSearchValueString = typeof searchValue === "string";
 	return (
 		<div className="flex flex-col space-y-6">
 			<h1 className="font-eb text-5xl font-semibold">Advisors</h1>
@@ -61,14 +61,17 @@ export default async function AdvisorView({
 	);
 }
 
-function AdvisorItem({  advisor }: { advisor: AdvisorItemProps }) {
-  // add rating
+function AdvisorItem({ advisor }: { advisor: AdvisorItemProps }) {
+	// add rating
 	return (
 		<Link href={`/advisor/${advisor.id}`}>
 			<div className="aspect-video rounded-xl bg-utsa-blue/50 p-5 font-eb text-white">
 				<div className="flex flex-row items-center justify-between">
 					<h1 className="text-4xl font-semibold">{advisor.name}</h1>
-					<ScoreDialCard className="max-w-fit" score={advisor.rating / 5}>
+					<ScoreDialCard
+						className="max-w-fit"
+						score={advisor.rating / 5}
+					>
 						{null}
 					</ScoreDialCard>
 				</div>

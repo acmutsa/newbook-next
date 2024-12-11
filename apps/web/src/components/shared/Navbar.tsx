@@ -22,7 +22,11 @@ export default function Navbar() {
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
 					<Link href={"/policy"}>Policies</Link>
-					<Suspense fallback={<Skeleton className="h-10 w-10 rounded-full" />}>
+					<Suspense
+						fallback={
+							<Skeleton className="h-10 w-10 rounded-full" />
+						}
+					>
 						<UserAvatarButton />
 					</Suspense>
 				</div>

@@ -28,19 +28,19 @@ export default async function Page(props: { searchParams?: SearchParamsType }) {
 			);
 			break;
 		case "courses":
-			RenderElement = <CourseView searchParams={searchParams} />
+			RenderElement = <CourseView searchParams={searchParams} />;
 			break;
 		case "instructors":
-			RenderElement=  <InstructorView searchParams={searchParams} />; 
+			RenderElement = <InstructorView searchParams={searchParams} />;
 			break;
 		case "advisors":
-			RenderElement =  <AdvisorView searchParams={searchParams} />;
+			RenderElement = <AdvisorView searchParams={searchParams} />;
 			break;
 		default:
 			RenderElement = null;
 			break;
 	}
-	// We can likely have a general view component 
+	// We can likely have a general view component
 	return (
 		<>
 			{RenderElement ? (

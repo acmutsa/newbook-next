@@ -5,10 +5,10 @@ import { PROFILE_MAX_CATEGORY_SCORE } from "@/lib/constants";
 export default function ScoreDialCard({
 	score,
 	children,
-	className
+	className,
 }: PropsWithChildren<{
 	score: number;
-	className?:string
+	className?: string;
 }>) {
 	const scorePercent =
 		score == undefined
@@ -23,7 +23,9 @@ export default function ScoreDialCard({
 	const strokeFillPercent = strokeFill * scorePercent;
 
 	return (
-		<div className={`flex aspect-square w-full flex-col items-center p-4 ${className}`}>
+		<div
+			className={`flex aspect-square w-full flex-col items-center p-4 ${className}`}
+		>
 			<svg
 				className="rotate-180"
 				height="6em"
