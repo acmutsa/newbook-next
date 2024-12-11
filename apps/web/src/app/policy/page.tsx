@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function PrivPolicyPage() {
 	return (
-		<div className="mx-auto grid h-full w-full max-w-7xl px-5 pt-20">
+		<div className="mx-auto grid h-full w-screen max-w-7xl pt-20">
 			<div className="flex flex-col">
 				<h1 className="py-8 font-eb text-6xl font-black text-utsa-blue">
 					Privacy Policy
