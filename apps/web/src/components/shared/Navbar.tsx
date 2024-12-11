@@ -1,12 +1,12 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { Skeleton } from "../ui/skeleton";
 import { Suspense } from "react";
 import UserAvatarButton from "./UserAvatarButton";
+import { SidebarTrigger } from "./sidebar/sidebar-trigger";
 
 export default function Navbar() {
 	return (
-		<nav className="fixed top-0 h-20 w-screen">
+		<nav className="fixed top-0 h-20 w-screen bg-offwhite">
 			<div className="mx-auto grid h-full w-full max-w-7xl grid-cols-2 px-5">
 				<div className="flex items-center gap-x-2">
 					<Link href={"/"}>
@@ -18,7 +18,10 @@ export default function Navbar() {
 						ALPHA
 					</span>
 				</div>
-				<div className="flex items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue">
+				<div className="flex items-center justify-end gap-x-4 md:hidden">
+					<SidebarTrigger />
+				</div>
+				<div className="hidden items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue md:flex">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
 					<Link href={"/policy"}>Policies</Link>
