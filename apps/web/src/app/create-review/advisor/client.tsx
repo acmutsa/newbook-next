@@ -12,12 +12,28 @@ import { useRouter } from "next/navigation";
 
 export function AdvisorReviewForm({ advisorId }: { advisorId: number }) {
 	const { executeAsync } = useAction(createAdvisorReview);
-	const [rating, setRating] = useState<number | null>(null);
-	const [content, setContent] = useState("");
 	const router = useRouter();
 
+	const [content, setContent] = useState("");
+	const [rating, setRating] = useState<number | null>(null);
+	const [responsiveRating, setResponsiveRating] = useState<number | null>(
+		null,
+	);
+	const [accuracyRating, setAccuracyRating] = useState<number | null>(null);
+	const [approachableRating, setApproachableRating] = useState<number | null>(
+		null,
+	);
+	const [helpfulRating, setHelpfulRating] = useState<number | null>(null);
+
 	async function handleSubmit() {
-		if (!rating || !content) {
+		if (
+			!rating ||
+			!responsiveRating ||
+			!accuracyRating ||
+			!approachableRating ||
+			!helpfulRating ||
+			!content
+		) {
 			toast.error("Please fill out all fields");
 			return;
 		}
@@ -25,6 +41,10 @@ export function AdvisorReviewForm({ advisorId }: { advisorId: number }) {
 		const result = executeAsync({
 			advisorId: advisorId,
 			overall_rating: rating,
+			responsive_rating: responsiveRating,
+			accuracy_rating: accuracyRating,
+			approachable_rating: approachableRating,
+			helpful_rating: helpfulRating,
 			content: content,
 		});
 
@@ -43,6 +63,30 @@ export function AdvisorReviewForm({ advisorId }: { advisorId: number }) {
 
 	return (
 		<>
+			<div className="mb-8">
+				<p className="mb-2 font-eb text-lg">
+					How would you rate the advisor's responsiveness?
+				</p>
+				<StarRating max={5} onChange={setResponsiveRating} />
+			</div>
+			<div className="mb-8">
+				<p className="mb-2 font-eb text-lg">
+					How would you rate the advisor's accuracy of information?
+				</p>
+				<StarRating max={5} onChange={setAccuracyRating} />
+			</div>
+			<div className="mb-8">
+				<p className="mb-2 font-eb text-lg">
+					How would you rate the advisor's approachability?
+				</p>
+				<StarRating max={5} onChange={setApproachableRating} />
+			</div>
+			<div className="mb-8">
+				<p className="mb-2 font-eb text-lg">
+					How would you rate the advisor's helpfulness?
+				</p>
+				<StarRating max={5} onChange={setHelpfulRating} />
+			</div>
 			<div className="mb-8">
 				<p className="mb-2 font-eb text-lg">Overall Rating</p>
 				<StarRating max={5} onChange={setRating} />

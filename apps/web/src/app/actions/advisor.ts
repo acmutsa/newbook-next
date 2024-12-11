@@ -9,6 +9,10 @@ import { and, eq } from "db/drizzle";
 const createAdvisorReviewSchema = z.object({
 	advisorId: z.number().int().min(1),
 	overall_rating: z.number().min(1).max(5),
+	responsive_rating: z.number().min(1).max(5),
+	accuracy_rating: z.number().min(1).max(5),
+	approachable_rating: z.number().min(1).max(5),
+	helpful_rating: z.number().min(1).max(5),
 	content: z.string().optional(),
 });
 
@@ -45,6 +49,10 @@ export const createAdvisorReview = authenticatedAction
 			advisorID: parsedInput.advisorId,
 			authorID: userId,
 			ratingValue: parsedInput.overall_rating,
+			responsiveRatingValue: parsedInput.responsive_rating,
+			accuracyRatingValue: parsedInput.accuracy_rating,
+			approachableRatingValue: parsedInput.approachable_rating,
+			helpfulRatingValue: parsedInput.helpful_rating,
 			content: parsedInput.content,
 		});
 

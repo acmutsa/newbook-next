@@ -54,6 +54,46 @@ export default async function Page({
 				ratings.length
 			: null;
 
+	const responsiveRating =
+		ratings.length > 0
+			? (ratings.reduce(
+					(sum, rating) => sum + rating.responsiveRatingValue,
+					0,
+				) /
+					ratings.length) *
+				0.2
+			: null;
+
+	const accuracyRating =
+		ratings.length > 0
+			? (ratings.reduce(
+					(sum, rating) => sum + rating.accuracyRatingValue,
+					0,
+				) /
+					ratings.length) *
+				0.2
+			: null;
+
+	const approachableRating =
+		ratings.length > 0
+			? (ratings.reduce(
+					(sum, rating) => sum + rating.approachableRatingValue,
+					0,
+				) /
+					ratings.length) *
+				0.2
+			: null;
+
+	const helpfulRating =
+		ratings.length > 0
+			? (ratings.reduce(
+					(sum, rating) => sum + rating.helpfulRatingValue,
+					0,
+				) /
+					ratings.length) *
+				0.2
+			: null;
+
 	return (
 		<div className="mx-auto grid min-h-screen w-screen max-w-6xl grid-cols-5 gap-x-2 pt-[25vh] text-utsa-blue">
 			<div className="col-span-2">
@@ -125,18 +165,32 @@ export default async function Page({
 						Overview
 					</h3>
 					<div className="grid grid-cols-2 gap-2 xl:grid-cols-4">
-						<ScoreDialCard score={0.3}>
-							<CalendarCheck size="1em" /> Responsive
-						</ScoreDialCard>
-						<ScoreDialCard score={0.9}>
-							<SquareCheckBig size="1em" /> Accurate
-						</ScoreDialCard>
-						<ScoreDialCard score={0.7}>
-							<Laugh size="1em" /> Approachable
-						</ScoreDialCard>
-						<ScoreDialCard score={0.8}>
-							<HeartHandshake size="1em" /> Helpful
-						</ScoreDialCard>
+						{responsiveRating &&
+						accuracyRating &&
+						approachableRating &&
+						helpfulRating ? (
+							<>
+								<ScoreDialCard score={responsiveRating}>
+									<CalendarCheck size="1em" /> Responsive
+								</ScoreDialCard>
+								<ScoreDialCard score={accuracyRating}>
+									<SquareCheckBig size="1em" /> Accurate
+								</ScoreDialCard>
+								<ScoreDialCard score={approachableRating}>
+									<Laugh size="1em" /> Approachable
+								</ScoreDialCard>
+								<ScoreDialCard score={helpfulRating}>
+									<HeartHandshake size="1em" /> Helpful
+								</ScoreDialCard>
+							</>
+						) : (
+							<div className="col-span-2 mt-2 flex h-16 w-full items-center justify-center rounded-lg border border-dashed border-utsa-blue xl:col-span-4">
+								<p className="text-center text-sm font-bold">
+									We'll have more insights here as reviews are
+									added!
+								</p>
+							</div>
+						)}
 					</div>
 				</div>
 				<div className="mt-3 border-t border-utsa-blue pt-2">

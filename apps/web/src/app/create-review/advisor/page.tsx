@@ -44,7 +44,7 @@ export default async function Page({
 					</span>
 				</Link>
 			</h1>
-			<h2 className="pb-48 pt-8 font-eb text-lg font-bold">
+			<h2 className="pb-24 pt-8 font-eb text-lg font-bold">
 				Advisor for {advisor.unit.map((x) => titleCase(x)).join(", ")}
 			</h2>
 			<AdvisorReviewForm advisorId={advisor.id} />
