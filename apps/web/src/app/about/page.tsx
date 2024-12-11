@@ -8,8 +8,8 @@ import {
 
 export default function Page() {
 	return (
-		<div className="mx-auto w-screen max-w-7xl px-5 pt-20 text-utsa-blue">
-			<div className="items-left flex flex-col py-8">
+		<div className="mx-auto w-screen max-w-7xl pt-20 text-utsa-blue">
+			<div className="flex flex-col py-8">
 				<h1 className="font-eb text-6xl font-black">About Us</h1>
 			</div>
 			<div className="grid grid-cols-3 grid-rows-2 gap-6">
