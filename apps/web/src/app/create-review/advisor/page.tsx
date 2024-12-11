@@ -35,7 +35,7 @@ export default async function Page({
 	}
 
 	return (
-		<div className="mx-auto min-h-screen w-screen max-w-7xl px-5 pt-[25vh]">
+		<div className="mx-auto min-h-screen w-screen max-w-7xl px-5 pb-10 pt-[25vh]">
 			<h1 className="font-eb text-7xl">
 				<span>Reviewing </span>
 				<Link href={`/advisor/${advisor.id}`}>

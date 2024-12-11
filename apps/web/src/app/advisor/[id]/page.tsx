@@ -256,6 +256,20 @@ export default async function Page({
 									</span>
 								)}
 							</p>
+							<div className="flex items-center justify-start gap-x-1 pt-5">
+								<RatingAreaBadge
+									text={`Responsiveness: ${rating.responsiveRatingValue}/5`}
+								/>
+								<RatingAreaBadge
+									text={`Accuracy: ${rating.accuracyRatingValue}/5`}
+								/>
+								<RatingAreaBadge
+									text={`Approachability: ${rating.approachableRatingValue}/5`}
+								/>
+								<RatingAreaBadge
+									text={`Helpfulness: ${rating.helpfulRatingValue}/5`}
+								/>
+							</div>
 						</div>
 					</div>
 				))}
@@ -267,6 +281,14 @@ export default async function Page({
 					</div>
 				)}
 			</div>
+		</div>
+	);
+}
+
+function RatingAreaBadge({ text }: { text: string }) {
+	return (
+		<div className="flex min-w-10 items-center justify-center rounded-full bg-utsa-blue px-3 py-1 text-center text-[0.55rem] font-semibold text-white">
+			{text.toUpperCase()}
 		</div>
 	);
 }
