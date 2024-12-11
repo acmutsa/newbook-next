@@ -1,13 +1,13 @@
 import { redirect } from "next/navigation";
 import { SearchParamsType } from "@/lib/types";
 import { Suspense } from "react";
-import CourseView from "@/components/search/CourseView";
 import BasicLoader from "@/components/shared/BasicLoader";
 import { JSX } from "react";
 import { FileQuestion } from "lucide-react";
 import Link from "next/link";
-import { capitalizeWord } from "@/lib/utils";
+import CourseView from "@/components/search/CourseView";
 import AdvisorView from "@/components/search/AdvisorView";
+import InstructorView from "@/components/search/InstructorView";
 
 export default async function Page(props: { searchParams?: SearchParamsType }) {
 	const searchParams = await props.searchParams;
@@ -19,15 +19,22 @@ export default async function Page(props: { searchParams?: SearchParamsType }) {
 	switch (searchType) {
 		case "":
 			// return all of these in a div
-			RenderElement =  null;
+			RenderElement = (
+				<div className="flex flex-col space-y-8 pb-10">
+					<CourseView searchParams={searchParams} />
+					<AdvisorView searchParams={searchParams} />
+					<InstructorView searchParams={searchParams} />
+				</div>
+			);
 			break;
 		case "courses":
 			RenderElement = <CourseView searchParams={searchParams} />
 			break;
-		case "professors":
-			RenderElement=  null; // placeholder
+		case "instructors":
+			RenderElement=  <InstructorView searchParams={searchParams} />; 
+			break;
 		case "advisors":
-			RenderElement =  <AdvisorView searchParams={searchParams} />; // placeholder
+			RenderElement =  <AdvisorView searchParams={searchParams} />;
 			break;
 		default:
 			RenderElement = null;

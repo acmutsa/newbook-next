@@ -29,15 +29,17 @@ export default async function AdvisorView({
 		.from(advisors)
 		.leftJoin(advisorRatings, eq(advisors.id, advisorRatings.advisorID))
 		.where(
-			sql`to_tsvector('english', ${advisors.name}) @@ websearch_to_tsquery('english', ${searchParams.q})`,
+			sql`to_tsvector('english', ${advisors.name}) @@ websearch_to_tsquery('english', ${searchParams.q+':*'})`,
 		)
 		.groupBy(advisors.id);
-    console.log(advisorResults)
 
+    const searchValue = searchParams.q;
+    const isSearchValueString = typeof searchValue === "string";
 	return (
-		<>
+		<div className="flex flex-col space-y-6">
+			<h1 className="font-eb text-5xl font-semibold">Advisors</h1>
 			{advisorResults.length > 0 ? (
-				<div className="flex flex-row w-full justify-center">
+				<div className="flex w-full flex-col justify-center space-y-3">
 					<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
 						{advisorResults.map((advisor) => (
 							<AdvisorItem
@@ -51,9 +53,11 @@ export default async function AdvisorView({
 					</div>
 				</div>
 			) : (
-				<NoResults />
+				<NoResults
+					searchValue={isSearchValueString ? searchValue : ""}
+				/>
 			)}
-		</>
+		</div>
 	);
 }
 

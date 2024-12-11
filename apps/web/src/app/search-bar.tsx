@@ -16,8 +16,8 @@ import { capitalizeWord } from "@/lib/utils";
 export default function SearchBar() {
 	const [searchValue, setSearchValue] = useState("");
 	// come back and change this
-	const [searchType,setSearchType] = useState("advisors");
-	const searchOptions = ['courses', 'professors', 'advisors'];
+	const [searchType,setSearchType] = useState("");
+	const searchOptions = [' ','courses', 'instructors', 'advisors'];
 	const router = useRouter();
 
 	function triggerSearch() {
@@ -32,25 +32,6 @@ export default function SearchBar() {
 
 	return (
 		<div className="flex h-16 gap-x-2">
-			{/* <Select onValueChange={(v)=>{
-				setSearchType(v);
-			}}>
-				<SelectTrigger className="hidden md:flex h-full">
-					<SelectValue placeholder="Search By..." />
-				</SelectTrigger>
-				<SelectTrigger className="h-full md:hidden w-[100px]">
-					<Filter color="#0C2440" />
-				</SelectTrigger>
-				<SelectContent>
-					<SelectGroup>
-						{searchOptions.map((option) => (
-							<SelectItem key={option} value={option}>
-								{capitalizeWord(option)}
-							</SelectItem>
-						))}
-					</SelectGroup>
-				</SelectContent>
-			</Select> */}
 			<Select
 				onValueChange={(v) => {
 					setSearchType(v);
@@ -60,7 +41,7 @@ export default function SearchBar() {
 				<SelectTrigger className="h-full border border-utsa-blue bg-utsa-blue/15">
 					<SelectValue
 						placeholder="Filter By..."
-						className="font-eb placeholder:italic"
+						className="font-eb placeholder:italic "
 					/>
 					<Filter color="#0C2440" className="md:hidden" />
 				</SelectTrigger>

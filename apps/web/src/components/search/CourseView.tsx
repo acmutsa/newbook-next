@@ -15,33 +15,36 @@ export default async function CourseView({
 }: {
 	searchParams: Awaited<SearchParamsType>;
 }) {
+	const searchValue = searchParams.q;
 	const courseResults = await db.query.courses.findMany({
-		where: sql`to_tsvector('english', ${courses.title}) @@ websearch_to_tsquery('english', ${searchParams.q})`,
+		where: sql`to_tsvector('english', ${courses.title}) @@ websearch_to_tsquery('english', ${searchValue})`,
 		with: {
 			instructor: true,
 		},
 	});
+	const isSearchValueString = typeof searchValue === "string";
 	return (
-		<>
-			{
-				courseResults.length > 0 ? (
-					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-						{courseResults.map((course) => (
-							<CourseItem
-								key={course.crn}
-								course={{
-									title: course.title,
-									professor: `${course.instructor.firstname} ${course.instructor.lastname}`,
-									crn: course.crn,
-								}}
-							/>
-						))}
-					</div>
-				) : (
-					<NoResults />
-				)
-			}
-		</>
+		<div className="flex flex-col space-y-6">
+			<h1 className="font-eb text-5xl font-semibold">Courses</h1>
+			{courseResults.length > 0 ? (
+				<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+					{courseResults.map((course) => (
+						<CourseItem
+							key={course.crn}
+							course={{
+								title: course.title,
+								professor: `${course.instructor.firstname} ${course.instructor.lastname}`,
+								crn: course.crn,
+							}}
+						/>
+					))}
+				</div>
+			) : (
+				<NoResults
+					searchValue={isSearchValueString ? searchValue : ""}
+				/>
+			)}
+		</div>
 	);
 }
 
