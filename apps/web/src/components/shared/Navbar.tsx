@@ -6,7 +6,7 @@ import { SidebarTrigger } from "./sidebar/sidebar-trigger";
 
 export default function Navbar() {
 	return (
-		<nav className="fixed top-0 h-20 w-screen">
+		<nav className="fixed top-0 h-20 w-screen bg-offwhite shadow-sm">
 			<div className="mx-auto grid h-full w-full max-w-7xl grid-cols-2 px-5">
 				<div className="flex items-center gap-x-2">
 					<Link href={"/"}>
