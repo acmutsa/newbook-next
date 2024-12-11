@@ -48,12 +48,11 @@ export default async function Page({
 		with: { author: true },
 	});
 
-	const averageRating = 4.5;
-	// ratings.length > 0
-	// 	? (ratings.reduce((sum, rating) => sum + rating.ratingValue, 0) /
-	// 			ratings.length) *
-	// 		(PROFILE_MAX_OVERALL_SCORE / 5)
-	// 	: null;
+	const averageRating =
+		ratings.length > 0
+			? ratings.reduce((sum, rating) => sum + rating.ratingValue, 0) /
+				ratings.length
+			: null;
 
 	return (
 		<div className="mx-auto grid min-h-screen w-screen max-w-6xl grid-cols-5 gap-x-2 pt-[25vh] text-utsa-blue">
@@ -84,30 +83,32 @@ export default async function Page({
 					<div className="!aspect-square h-full rounded-lg bg-utsa-blue">
 						<div className="flex h-full items-center justify-center">
 							<div className="relative">
-								<svg
-									className="h-32 w-32 -rotate-90 transform"
-									viewBox="0 0 100 100"
-								>
-									{/* Background circle */}
-									<circle
-										className="stroke-white/20"
-										cx="50"
-										cy="50"
-										r="45"
-										strokeWidth="10"
-										fill="none"
-									/>
-									{/* Progress circle */}
-									<circle
-										className="stroke-white transition-all"
-										cx="50"
-										cy="50"
-										r="45"
-										strokeWidth="10"
-										fill="none"
-										strokeDasharray={`${(averageRating / 5) * 283} 283`}
-									/>
-								</svg>
+								{averageRating && (
+									<svg
+										className="h-32 w-32 -rotate-90 transform"
+										viewBox="0 0 100 100"
+									>
+										{/* Background circle */}
+										<circle
+											className="stroke-white/20"
+											cx="50"
+											cy="50"
+											r="45"
+											strokeWidth="10"
+											fill="none"
+										/>
+										{/* Progress circle */}
+										<circle
+											className="stroke-white transition-all"
+											cx="50"
+											cy="50"
+											r="45"
+											strokeWidth="10"
+											fill="none"
+											strokeDasharray={`${(averageRating / 5) * 283} 283`}
+										/>
+									</svg>
+								)}
 								<div className="absolute inset-0 flex items-center justify-center">
 									<h1 className="text-5xl font-black text-white">
 										{averageRating
