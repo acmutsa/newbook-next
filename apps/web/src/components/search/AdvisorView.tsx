@@ -4,9 +4,13 @@ import { advisors,advisorRatings } from "db/schema";
 import { SearchParamsType } from "@/lib/types";
 import Link from "next/link";
 import NoResults from "./NoResults";
+import { capitalizeWord } from "@/lib/utils";
+import ScoreDialCard from "../shared/NewBookScoreDial";
+import { CalendarCheck } from "lucide-react";
 interface AdvisorItemProps {
+  id:number;
 	name:string;
-  units:Array<string>;
+  unit:Array<string>;
   rating:number;
 }
 
@@ -17,47 +21,58 @@ export default async function AdvisorView({
 }) {
 	const advisorResults = await db
 		.select({
-      rating:sql<number>`avg(${advisorRatings.ratingValue})`,
-      ...getTableColumns(advisors),
-    })
+			id: advisors.id,
+			name: advisors.name,
+			unit: advisors.unit,
+			rating: sql<number>`avg(${advisorRatings.ratingValue})`,
+		})
 		.from(advisors)
 		.leftJoin(advisorRatings, eq(advisors.id, advisorRatings.advisorID))
 		.where(
 			sql`to_tsvector('english', ${advisors.name}) @@ websearch_to_tsquery('english', ${searchParams.q})`,
 		)
-    .groupBy(advisors.id);
+		.groupBy(advisors.id);
     console.log(advisorResults)
 
 	return (
 		<>
-			{/* {advisorResults.length > 0 ? (
-				<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-					{advisorResults.map((course) => (
-						<CourseItem
-							key={course.crn}
-							course={{
-								title: course.title,
-								professor: `${course.instructor.firstname} ${course.instructor.lastname}`,
-								crn: course.crn,
-							}}
-						/>
-					))}
+			{advisorResults.length > 0 ? (
+				<div className="flex flex-row w-full justify-center">
+					<div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+						{advisorResults.map((advisor) => (
+							<AdvisorItem
+								key={advisor.id}
+								advisor={{
+									...advisor,
+									rating: advisor.rating || 0,
+								}}
+							/>
+						))}
+					</div>
 				</div>
-			) : ( */}
+			) : (
 				<NoResults />
-			{/* )} */}
+			)}
 		</>
 	);
 }
 
-function CourseItem({ course }: { course: AdvisorItemProps }) {
+function AdvisorItem({  advisor }: { advisor: AdvisorItemProps }) {
+  // add rating
 	return (
-		<Link href={`/course/${course.crn}`}>
+		<Link href={`/advisor/${advisor.id}`}>
 			<div className="aspect-video rounded-xl bg-utsa-blue/50 p-5 font-eb text-white">
-				<h1 className="text-4xl font-semibold">{course.title}</h1>
-				<h2 className="pt-3 text-lg font-semibold">
-					{course.professor}
-				</h2>
+				<div className="flex flex-row items-center justify-between">
+					<h1 className="text-4xl font-semibold">{advisor.name}</h1>
+					<ScoreDialCard className="max-w-fit" score={advisor.rating / 5}>
+						{null}
+					</ScoreDialCard>
+				</div>
+				{advisor.unit.map((unit) => (
+					<h2 key={unit} className="pt-3 text-lg font-semibold">
+						{capitalizeWord(unit)}
+					</h2>
+				))}
 			</div>
 		</Link>
 	);
