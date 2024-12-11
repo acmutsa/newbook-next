@@ -35,14 +35,14 @@ export default function RootLayout({
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
 					<SidebarProvider>
-                        <Toaster
-						    toastOptions={{
-							    className: "text-offwhite",
-							    classNames: {
-								    toast: "bg-utsa-blue border-offwhite",
-							    },
-						    }}
-                        />
+						<Toaster
+							toastOptions={{
+								className: "text-offwhite",
+								classNames: {
+									toast: "bg-utsa-blue border-offwhite",
+								},
+							}}
+						/>
 						<div className="flex min-h-screen flex-col">
 							<Navbar />
 							<div className="flex flex-1">
