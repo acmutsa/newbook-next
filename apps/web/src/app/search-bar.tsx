@@ -15,13 +15,13 @@ export default function SearchBar() {
 	}
 
 	return (
-		<div className="flex h-16 gap-x-2">
+		<div className="mx-auto flex h-16 w-screen justify-center gap-x-2">
 			<input
 				onChange={(e) => setSearchValue(e.target.value)}
 				onKeyDown={(e) => {
 					if (e.key === "Enter") triggerSearch();
 				}}
-				className="h-full w-screen max-w-[500px] rounded-xl border border-utsa-blue bg-utsa-blue/15 px-5 font-noto text-xl font-semibold !text-utsa-blue text-black"
+				className="h-full max-w-[500px] rounded-xl border border-utsa-blue bg-utsa-blue/15 px-5 font-noto text-xl font-semibold !text-utsa-blue text-black md:w-1/2"
 			></input>
 			<button
 				onClick={triggerSearch}

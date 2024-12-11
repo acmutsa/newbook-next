@@ -1,6 +1,6 @@
 import { db } from "./index";
 import { eq, sql } from "drizzle-orm";
-import { courses, instructors } from "./schema";
+import { courses, instructors, ratings } from "./schema";
 import { type CourseScrapeData } from "./types";
 
 export async function insertCourses(courseList: CourseScrapeData[]) {
@@ -65,6 +65,13 @@ export async function insertCourses(courseList: CourseScrapeData[]) {
 			`[Scraper] [Completed] ${dbCourse[0].title} with crn ${dbCourse[0].crn} for instuctor ID ${instr_id}`,
 		);
 	}
+}
+
+export async function getMyRatings(userID: string) {
+	const myRatings = await db.query.ratings.findMany({
+		where: eq(ratings.authorID, userID),
+	});
+	return myRatings;
 }
 
 export async function clearCourses() {
