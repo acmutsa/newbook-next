@@ -55,7 +55,7 @@ export const users = pgTable("users", {
 	firstname: text("firstname").notNull(),
 	lastname: text("lastname").notNull(),
 	username: text("username").notNull().unique(),
-	profileImage: text("profile_image"),
+	profileImage: text("profile_image").default("/img/pfp.png"),
 	email: text("email").notNull(),
 });
 
@@ -95,6 +95,10 @@ export const advisorRatings = pgTable("advisor_ratings", {
 	authorID: text("author_id").notNull(),
 	advisorID: integer("advisor_id").notNull(),
 	ratingValue: integer("rating_value").notNull(),
+	responsiveRatingValue: integer("responsive_rating_value").notNull(),
+	accuracyRatingValue: integer("accuracy_rating_value").notNull(),
+	approachableRatingValue: integer("approachable_rating_value").notNull(),
+	helpfulRatingValue: integer("helpful_rating_value").notNull(),
 	content: text("content"),
 	publiclyShowAuthorInfo: boolean("publicly_show_author_info")
 		.notNull()
