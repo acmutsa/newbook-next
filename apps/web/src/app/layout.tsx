@@ -3,13 +3,8 @@ import localFont from "next/font/local";
 import { Noto_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
-import {
-	ClerkProvider,
-	SignInButton,
-	SignedIn,
-	SignedOut,
-	UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 const noto = Noto_Sans({
 	variable: "--font-notosans",
@@ -38,6 +33,7 @@ export default function RootLayout({
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
 					<Navbar />
+					<Toaster />
 					{children}
 				</body>
 			</html>
