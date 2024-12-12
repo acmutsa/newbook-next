@@ -15,6 +15,34 @@
       "when": 1733329599067,
       "tag": "0001_chilly_shinko_yamashiro",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1733926171204,
+      "tag": "0002_premium_mandarin",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1733926256622,
+      "tag": "0003_boring_toad_men",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1733926893690,
+      "tag": "0004_simple_albert_cleary",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1733932203786,
+      "tag": "0005_adorable_the_watchers",
+      "breakpoints": true
     }
   ]
 }

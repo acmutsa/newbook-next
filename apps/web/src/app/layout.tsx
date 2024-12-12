@@ -5,13 +5,8 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import { MobileSidebar } from "@/components/shared/sidebar/mobile-sidebar";
 import { SidebarProvider } from "@/contexts/sidebar-context";
-import {
-	ClerkProvider,
-	SignInButton,
-	SignedIn,
-	SignedOut,
-	UserButton,
-} from "@clerk/nextjs";
+import { Toaster } from "sonner";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const noto = Noto_Sans({
 	variable: "--font-notosans",
@@ -40,6 +35,14 @@ export default function RootLayout({
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
 					<SidebarProvider>
+						<Toaster
+							toastOptions={{
+								className: "text-offwhite",
+								classNames: {
+									toast: "bg-utsa-blue border-offwhite",
+								},
+							}}
+						/>
 						<div className="flex min-h-screen flex-col">
 							<Navbar />
 							<div className="flex flex-1">

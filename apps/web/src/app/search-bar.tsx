@@ -15,14 +15,21 @@ import { capitalizeWord } from "@/lib/utils";
 
 export default function SearchBar() {
 	const [searchValue, setSearchValue] = useState("");
+	const [isLoading, setLoading] = useState(false);
+
 	// come back and change this
 	const [searchType, setSearchType] = useState("");
 	const searchOptions = [" ", "courses", "instructors", "advisors"];
 	const router = useRouter();
 
+	useEffect(() => {
+		// console.log("Am I loading? " + isLoading);
+	}, [isLoading]);
+
 	function triggerSearch() {
 		const sv = searchValue.trim();
 		if (sv.length > 0) {
+			setLoading(true);
 			router.push(
 				`/search?q=${encodeURIComponent(sv)}&searchType=${searchType}`,
 			);
