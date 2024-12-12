@@ -41,13 +41,20 @@ export default function SearchBar() {
 
 	return (
 		<div className="flex h-16 gap-x-2">
+			{isLoading && (
+				<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
+					<div className="flex animate-bounce items-center justify-center text-5xl">
+						🐸
+					</div>
+				</div>
+			)}
 			<Select
 				onValueChange={(v) => {
 					setSearchType(v);
 				}}
 			>
 				{/* Come back and fix how this looks on mobile */}
-				<SelectTrigger className="h-full border border-utsa-blue bg-utsa-blue/15 rounded-xl">
+				<SelectTrigger className="h-full rounded-xl border border-utsa-blue bg-utsa-blue/15">
 					<SelectValue
 						placeholder="Filter By..."
 						className="font-eb placeholder:italic"
