@@ -23,11 +23,10 @@ interface CourseItemProps {
 // 	{ title: "Mathematics 101", professor: "Dr. John Smith", crn: "CRN56712" },
 // ];
 
-export default async function Page({
-	searchParams,
-}: {
-	searchParams?: { [key: string]: string | string[] | undefined };
+export default async function Page(props: {
+	searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+	const searchParams = await props.searchParams;
 	if (!searchParams || !searchParams.q || searchParams.q.length == 0) {
 		return redirect("/");
 	}

@@ -4,6 +4,7 @@ import postgres from "postgres";
 import * as dotenv from "dotenv";
 
 const runMigrations = async () => {
+	console.log("Current working directory:", process.cwd());
 	dotenv.config({
 		path: "../../.env",
 	});
@@ -18,7 +19,7 @@ const runMigrations = async () => {
 	);
 	const db = drizzle(sql);
 
-	await migrate(db, { migrationsFolder: "drizzle" });
+	await migrate(db, { migrationsFolder: "./drizzle" });
 
 	console.log(`✅ Migrations completed in ${Date.now() - start}ms`);
 

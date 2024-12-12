@@ -3,13 +3,10 @@ import localFont from "next/font/local";
 import { Noto_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
-import {
-	ClerkProvider,
-	SignInButton,
-	SignedIn,
-	SignedOut,
-	UserButton,
-} from "@clerk/nextjs";
+import { MobileSidebar } from "@/components/shared/sidebar/mobile-sidebar";
+import { SidebarProvider } from "@/contexts/sidebar-context";
+import { Toaster } from "sonner";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const noto = Noto_Sans({
 	variable: "--font-notosans",
@@ -37,8 +34,25 @@ export default function RootLayout({
 				<body
 					className={`${noto.variable} ${eb.variable} bg-offwhite font-noto antialiased`}
 				>
-					<Navbar />
-					{children}
+					<SidebarProvider>
+						<Toaster
+							toastOptions={{
+								className: "text-offwhite",
+								classNames: {
+									toast: "bg-utsa-blue border-offwhite",
+								},
+							}}
+						/>
+						<div className="flex min-h-screen flex-col">
+							<Navbar />
+							<div className="flex flex-1">
+								<MobileSidebar />
+								<main className="flex w-screen flex-1 justify-center px-4">
+									{children}
+								</main>
+							</div>
+						</div>
+					</SidebarProvider>
 				</body>
 			</html>
 		</ClerkProvider>
