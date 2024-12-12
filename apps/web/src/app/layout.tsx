@@ -4,7 +4,7 @@ import { Noto_Sans, EB_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import { MobileSidebar } from "@/components/shared/sidebar/mobile-sidebar";
-import { SidebarProvider } from "@/contexts/sidebar-context";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { Toaster } from "sonner";
 import { ClerkProvider } from "@clerk/nextjs";
 
@@ -44,9 +44,9 @@ export default function RootLayout({
 							}}
 						/>
 						<div className="flex min-h-screen flex-col">
+							<MobileSidebar />
 							<Navbar />
 							<div className="flex flex-1">
-								<MobileSidebar />
 								<main className="flex w-screen flex-1 justify-center px-4">
 									{children}
 								</main>
