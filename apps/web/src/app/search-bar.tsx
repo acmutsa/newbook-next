@@ -40,7 +40,7 @@ export default function SearchBar() {
 				}}
 			>
 				{/* Come back and fix how this looks on mobile */}
-				<SelectTrigger className="h-full border border-utsa-blue bg-utsa-blue/15">
+				<SelectTrigger className="h-full border border-utsa-blue bg-utsa-blue/15 rounded-xl">
 					<SelectValue
 						placeholder="Filter By..."
 						className="font-eb placeholder:italic"
