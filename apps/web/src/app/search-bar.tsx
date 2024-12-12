@@ -12,6 +12,7 @@ import {
 	SelectValue,
 } from "@/components/ui/select";
 import { capitalizeWord } from "@/lib/utils";
+import clsx from "clsx";
 
 export default function SearchBar() {
 	const [searchValue, setSearchValue] = useState("");
@@ -19,12 +20,8 @@ export default function SearchBar() {
 
 	// come back and change this
 	const [searchType, setSearchType] = useState("");
-	const searchOptions = [" ", "courses", "instructors", "advisors"];
+	const searchOptions = ["courses", "instructors", "advisors"];
 	const router = useRouter();
-
-	useEffect(() => {
-		// console.log("Am I loading? " + isLoading);
-	}, [isLoading]);
 
 	function triggerSearch() {
 		const sv = searchValue.trim();
@@ -35,34 +32,46 @@ export default function SearchBar() {
 			);
 		}
 	}
-	useEffect(() => {
-		console.log("searchType:", searchType);
-	}, [searchType]);
-
+	const dummyPlaceHolder = "_null";
 	return (
 		<div className="flex h-16 gap-x-2">
 			{isLoading && (
-				<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20">
+				<div className="fixed inset-0 z-50 flex flex-col items-center justify-center space-y-5 bg-black bg-opacity-20">
 					<div className="flex animate-bounce items-center justify-center text-5xl">
 						🐸
 					</div>
+					<h1>Working...</h1>
 				</div>
 			)}
 			<Select
 				onValueChange={(v) => {
-					setSearchType(v);
+					setSearchType(v === dummyPlaceHolder ? "" : v);
 				}}
+				value={searchType}
 			>
 				{/* Come back and fix how this looks on mobile */}
 				<SelectTrigger className="h-full rounded-xl border border-utsa-blue bg-utsa-blue/15">
-					<SelectValue
-						placeholder="Filter By..."
-						className="font-eb placeholder:italic"
+					<div className="hidden md:flex">
+						<SelectValue
+							className="font-eb"
+							placeholder="Filter by..."
+						/>
+					</div>
+					<Filter
+						color="#0C2440"
+						className={clsx(`md:hidden`, {
+							"fill-[#0C2440]": searchType,
+						})}
 					/>
-					<Filter color="#0C2440" className="md:hidden" />
 				</SelectTrigger>
 				<SelectContent>
 					<SelectGroup>
+						<SelectItem
+							value={dummyPlaceHolder}
+							className="font-eb text-xl text-transparent hover:text-transparent focus:text-transparent"
+						>
+							{dummyPlaceHolder}
+						</SelectItem>
 						{searchOptions.map((option) => (
 							<SelectItem
 								key={option}

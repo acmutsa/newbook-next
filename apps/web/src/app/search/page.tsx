@@ -54,18 +54,22 @@ export default async function Page(props: { searchParams?: SearchParamsType }) {
 					</Suspense>
 				</div>
 			) : (
-				<TypeNotFound />
+				<TypeNotFound
+					type={
+						typeof searchType === "string" ? searchType : "unkown"
+					}
+				/>
 			)}
 		</>
 	);
 }
 
-function TypeNotFound() {
+function TypeNotFound({ type }: { type: string }) {
 	return (
 		<div className="flex min-h-screen w-screen flex-col items-center justify-center space-y-8">
 			<div className="flex flex-col items-center justify-center space-y-2">
 				<FileQuestion size={100} />
-				<h1 className="text-2xl">Unknown Search Type</h1>
+				<h1 className="text-2xl">{`Unknown Search Type '${type}'`}</h1>
 			</div>
 			<Link className="underline" href={"/"}>
 				Return To Search{" "}
