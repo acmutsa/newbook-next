@@ -37,7 +37,7 @@ export default function Page() {
 					</b>
 				</p>
 				<Image
-					src="/sp1.jpg"
+					src="/img/sp1.jpg"
 					width={650}
 					height={250}
 					className="col-span-2 col-start-2 row-span-2 hidden md:block"
