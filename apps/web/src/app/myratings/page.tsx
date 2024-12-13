@@ -25,7 +25,7 @@ export default async function Page() {
 				</h2>
 				<div className="grid grid-cols-1 gap-4 overflow-x-scroll p-8 md:grid-cols-2 lg:grid-cols-3">
 					{advisors.map((a) => (
-						<AdvisorRating advisor={a} />
+						<AdvisorRating advisor={a} key={a.id} />
 					))}
 				</div>
 			</div>
