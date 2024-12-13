@@ -28,14 +28,14 @@ export default async function Page() {
 					))}
 				</div>
 			</div>
-			<div className="text-left">
+			{/* <div className="text-left">
 				<h2 className="mb-4 px-8 text-4xl font-bold">Course Ratings</h2>
 				<div className="grid grid-cols-1 gap-4 overflow-x-scroll p-8 md:grid-cols-2 lg:grid-cols-3">
 					{courses.map((c) => (
 						<CourseRating course={c} />
 					))}
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
