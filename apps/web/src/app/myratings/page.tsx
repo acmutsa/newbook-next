@@ -11,46 +11,7 @@ export default async function Page() {
 		return redirectToSignIn();
 	}
 
-	// const { advisors, courses } = await getMyRatings(user.id);
-
-	// This query isn't currently working, so lets make some advisor and course rating arrays
-	const advisors = [
-		{
-			id: "1",
-			content: "This advisor was great!",
-			createdAt: new Date(),
-			ratingValue: 5,
-			advisor: {
-				name: "Dr. Advisor",
-			},
-		},
-		{
-			id: "2",
-			content: "This advisor was also great!",
-			createdAt: new Date(),
-			ratingValue: 5,
-			advisor: {
-				name: "Dr. Advisor",
-			},
-		},
-	];
-
-	const courses = [
-		{
-			id: "1",
-			content: "This course was great!",
-			createdAt: new Date(),
-			ratingValue: 4,
-			title: "Course Title",
-		},
-		{
-			id: "2",
-			content: "This course was also great!",
-			createdAt: new Date(),
-			ratingValue: 2,
-			title: "Course Title",
-		},
-	];
+	const { advisors, courses } = await getMyRatings(user.id);
 
 	return (
 		<div className="mx-8 mt-20 w-full pt-8">
