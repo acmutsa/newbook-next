@@ -1,7 +1,7 @@
 import { AdvisorRating, CourseRating } from "@/components/shared/RatingCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { currentUser, redirectToSignIn } from "@clerk/nextjs/server";
+import { currentUser } from "@clerk/nextjs/server";
 import { getMyRatings } from "db/queries";
 import { redirect } from "next/navigation";
 
