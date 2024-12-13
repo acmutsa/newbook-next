@@ -24,6 +24,7 @@ export default function Navbar() {
 				<div className="hidden items-center justify-end gap-x-4 font-eb text-lg font-semibold text-utsa-blue md:flex">
 					<Link href={"https://acmutsa.org/"}>ACM</Link>
 					<Link href={"/about"}>About Us</Link>
+					<Link href={"/guidelines"}>Guidelines</Link>
 					<Link href={"/policy"}>Policies</Link>
 					<Suspense
 						fallback={
