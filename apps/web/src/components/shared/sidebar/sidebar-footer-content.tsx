@@ -28,6 +28,14 @@ export function SidebarFooterContent() {
 				</SidebarMenuItem>
 				<SidebarMenuItem>
 					<SidebarMenuButton asChild>
+						<a href="/guidelines">
+							<Users className="mr-2 h-4 w-4" />
+							Guidelines
+						</a>
+					</SidebarMenuButton>
+				</SidebarMenuItem>
+				<SidebarMenuItem>
+					<SidebarMenuButton asChild>
 						<a href="/policy">
 							<Cookie className="mr-2 h-4 w-4" />
 							Policies
