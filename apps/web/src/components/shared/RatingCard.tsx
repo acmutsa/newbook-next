@@ -9,6 +9,7 @@ import {
 } from "../ui/card";
 import { Button } from "../ui/button";
 import NewBookScoreDial from "./NewBookScoreDial";
+import { StarFilledIcon, StarIcon } from "@radix-ui/react-icons";
 
 interface CourseRatingProps {
 	id: string;
@@ -84,12 +85,19 @@ export function AdvisorRating({
 						<CardTitle>{name}</CardTitle>
 					</Link>
 					<span
-						className="inline-flex items-center text-amber-500"
+						className="inline-flex items-center text-utsa-blue"
 						aria-hidden="true"
 					>
-						<NewBookScoreDial
-							score={ratingValue}
-						></NewBookScoreDial>
+						{Array.from({
+							length: Math.floor(ratingValue),
+						}).map((i, _) => (
+							<StarFilledIcon width={24} />
+						))}
+						{Array.from({
+							length: Math.ceil(5 - ratingValue),
+						}).map((i, _) => (
+							<StarIcon width={24} />
+						))}
 					</span>
 				</div>
 			</CardHeader>
