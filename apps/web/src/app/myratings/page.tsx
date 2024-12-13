@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { currentUser, redirectToSignIn } from "@clerk/nextjs/server";
 import { getMyRatings } from "db/queries";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
 	const user = await currentUser();
 
 	if (!user || !user.id) {
-		return redirectToSignIn();
+		return redirect("/sign-in");
 	}
 
 	const { advisors, courses } = await getMyRatings(user.id);
