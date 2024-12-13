@@ -16,7 +16,7 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { ViewVerticalIcon } from "@radix-ui/react-icons";
+import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -149,7 +149,7 @@ const SidebarProvider = React.forwardRef<
 							} as React.CSSProperties
 						}
 						className={cn(
-							"group/sidebar-wrapper flex hidden min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar",
+							"group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar",
 							className,
 						)}
 						ref={ref}
@@ -232,7 +232,7 @@ const Sidebar = React.forwardRef<
 		return (
 			<div
 				ref={ref}
-				className="group peer hidden text-sidebar-foreground md:block"
+				className="group peer hidden text-sidebar-foreground"
 				data-state={state}
 				data-collapsible={state === "collapsed" ? collapsible : ""}
 				data-variant={variant}
@@ -295,7 +295,7 @@ const SidebarTrigger = React.forwardRef<
 			}}
 			{...props}
 		>
-			<ViewVerticalIcon />
+			<HamburgerMenuIcon />
 			<span className="sr-only">Toggle Sidebar</span>
 		</Button>
 	);
