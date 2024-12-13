@@ -176,7 +176,7 @@ function CreateingUserState() {
 }
 
 function SuccessState() {
-	const [redirectCount, setRedirectCount] = useState(3);
+	const [redirectCount, setRedirectCount] = useState(2);
 	const { push } = useRouter();
 	useEffect(() => {
 		if (redirectCount === 0) {
@@ -189,7 +189,7 @@ function SuccessState() {
 	return (
 		<div className="flex flex-col items-center justify-center space-y-10">
 			<CircleCheckBig size={60} color="green" />
-			<h1 className="text-center text-2xl font-semibold 2xl:text-3xl">{`Success Creating Registration. Redirecting in ${redirectCount}...`}</h1>
+			<h1 className="text-center text-2xl font-semibold 2xl:text-3xl">{`Success Creating Registration. Redirecting shortly...`}</h1>
 		</div>
 	);
 }
