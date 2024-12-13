@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { db } from "db";
 import { advisors } from "db/schema";
 import { eq } from "db/drizzle";
@@ -8,12 +8,24 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { StarRating } from "@/components/StarRating";
 import { AdvisorReviewForm } from "./client";
+import { getUser } from "db";
+import { auth } from "@clerk/nextjs/server";
 
 export default async function Page({
 	searchParams,
 }: {
 	searchParams: Promise<{ id: string }>;
 }) {
+	const { userId} = await auth();
+	if (!userId) {
+		return redirect("/sign-in");
+	}
+	const user = await getUser(userId);
+	if (!user) {
+		return redirect(
+			"/sign-in"
+		);
+	}
 	const id = (await searchParams).id;
 
 	if (!id) {
