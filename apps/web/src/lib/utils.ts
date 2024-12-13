@@ -40,6 +40,6 @@ export function titleCase(str: string): string {
 	return words.join(" ");
 }
 
-function capitalizeWord(word: string): string {
+export function capitalizeWord(word: string): string {
 	return word.charAt(0).toUpperCase() + word.slice(1);
 }

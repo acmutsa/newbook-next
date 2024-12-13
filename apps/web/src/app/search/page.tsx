@@ -1,71 +1,79 @@
 import { redirect } from "next/navigation";
+import { SearchParamsType } from "@/lib/types";
+import { Suspense } from "react";
+import BasicLoader from "@/components/shared/BasicLoader";
+import { JSX } from "react";
+import { FileQuestion } from "lucide-react";
 import Link from "next/link";
-import { db } from "db";
-import { courses } from "db/schema";
-import { sql } from "db/drizzle";
+import CourseView from "@/components/search/CourseView";
+import AdvisorView from "@/components/search/AdvisorView";
+import InstructorView from "@/components/search/InstructorView";
 
-interface CourseItemProps {
-	title: string;
-	professor: string;
-	crn: string;
-}
-
-// const courses: CourseItemProps[] = [
-// 	{ title: "Biology 101", professor: "Prof. Alice Johnson", crn: "CRN29085" },
-// 	{ title: "Physics 201", professor: "Prof. Alice Johnson", crn: "CRN21486" },
-// 	{
-// 		title: "Chemistry 301",
-// 		professor: "Prof. Alice Johnson",
-// 		crn: "CRN78434",
-// 	},
-// 	{ title: "Chemistry 301", professor: "Dr. Emily White", crn: "CRN22498" },
-// 	{ title: "Physics 201", professor: "Prof. Alice Johnson", crn: "CRN88355" },
-// 	{ title: "Mathematics 101", professor: "Dr. John Smith", crn: "CRN56712" },
-// ];
-
-export default async function Page(props: {
-	searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
-}) {
+export default async function Page(props: { searchParams?: SearchParamsType }) {
 	const searchParams = await props.searchParams;
-	if (!searchParams || !searchParams.q || searchParams.q.length == 0) {
+	if (!(searchParams && searchParams.q && searchParams.q.length > 0)) {
 		return redirect("/");
 	}
-
-	const courseResults = await db
-		.select()
-		.from(courses)
-		.where(
-			sql`to_tsvector('english', ${courses.title}) @@ websearch_to_tsquery('english', ${searchParams.q})`,
-		);
+	const searchType = searchParams.searchType || "";
+	let RenderElement: JSX.Element | null = <></>;
+	switch (searchType) {
+		case "":
+			// return all of these in a div
+			RenderElement = (
+				<div className="flex flex-col space-y-8 pb-10">
+					<CourseView searchParams={searchParams} />
+					<AdvisorView searchParams={searchParams} />
+					<InstructorView searchParams={searchParams} />
+				</div>
+			);
+			break;
+		case "courses":
+			RenderElement = <CourseView searchParams={searchParams} />;
+			break;
+		case "instructors":
+			RenderElement = <InstructorView searchParams={searchParams} />;
+			break;
+		case "advisors":
+			RenderElement = <AdvisorView searchParams={searchParams} />;
+			break;
+		default:
+			RenderElement = null;
+			break;
+	}
+	// We can likely have a general view component
 	return (
-		<div className="mx-auto flex min-h-screen w-screen max-w-4xl flex-col pt-[25vh] text-utsa-blue">
-			<h1 className="pb-20 font-eb text-8xl">Results</h1>
-
-			<h3 className="pb-8 font-eb text-2xl font-semibold">Courses</h3>
-			<div className="grid grid-cols-2 gap-2">
-				{courseResults.map((i) => (
-					<CourseItem
-						course={{
-							crn: i.crn,
-							professor: "john doe",
-							title: i.title,
-						}}
-					/>
-				))}
-			</div>
-		</div>
+		<>
+			{RenderElement ? (
+				<div className="mx-auto flex min-h-screen w-screen max-w-4xl flex-col pt-[25vh] text-utsa-blue">
+					<h1 className="font-eb text-8xl">Results</h1>
+					<Link href={"/"} className="mb-20">
+						<p className="underline">Return To Search</p>
+					</Link>
+					<Suspense fallback={<BasicLoader />}>
+						{RenderElement}
+					</Suspense>
+				</div>
+			) : (
+				<TypeNotFound
+					type={
+						typeof searchType === "string" ? searchType : "unkown"
+					}
+				/>
+			)}
+		</>
 	);
 }
 
-function CourseItem({ course }: { course: CourseItemProps }) {
+function TypeNotFound({ type }: { type: string }) {
 	return (
-		<Link href={`/course/${course.crn}`}>
-			<div className="aspect-video rounded-xl bg-utsa-blue/50 p-5 font-eb text-white">
-				<h1 className="text-4xl font-semibold">{course.title}</h1>
-				<h2 className="pt-3 text-lg font-semibold">
-					{course.professor}
-				</h2>
+		<div className="flex min-h-screen w-screen flex-col items-center justify-center space-y-8">
+			<div className="flex flex-col items-center justify-center space-y-2">
+				<FileQuestion size={100} />
+				<h1 className="text-2xl">{`Unknown Search Type '${type}'`}</h1>
 			</div>
-		</Link>
+			<Link className="underline" href={"/"}>
+				Return To Search{" "}
+			</Link>
+		</div>
 	);
 }

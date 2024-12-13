@@ -100,6 +100,7 @@ export default function Page() {
 							{advisorReviews.length > 0
 								? advisorReviews.map((review) => (
 										<ProfileReview
+											key={review.id}
 											score={review.score}
 											major={review.student.major}
 											classOf={review.student.classOf}
