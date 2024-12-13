@@ -59,7 +59,7 @@ export function CourseRating({
 
 interface AdvisorRatingProps {
 	id: number;
-	content: string;
+	content: string | null;
 	createdAt: Date;
 	ratingValue: number;
 	advisor: {
